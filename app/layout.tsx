@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
 };
 
-const cx = (...classes) => classes.filter(Boolean).join(" ");
+const cx = (...classes: string[]) => classes.filter(Boolean).join(" ");
 
 export default function RootLayout({
   children,
@@ -74,20 +74,33 @@ export default function RootLayout({
           title="JSON Feed"
         />
       </head>
-      <body className="antialiased flex flex-col items-center justify-center mx-auto mt-2 lg:mt-8 mb-20 lg:mb-40">
+      <body className="antialiased flex flex-col items-center mx-auto mt-2 lg:mt-8 mb-20 lg:mb-40 w-full">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <main className="flex-auto min-w-0 mt-2 md:mt-6 flex flex-col px-6 sm:px-4 md:px-0 max-w-[640px] w-full">
-            <Navbar />
+          {/* Navbar and Footer in a narrower container for consistent styling */}
+          <header className="w-full flex justify-center px-6 sm:px-4 md:px-0">
+            <div className="max-w-[640px] w-full">
+              <Navbar />
+            </div>
+          </header>
+
+          {/* Main content (children) can now be shown in full width if desired */}
+          <main className="flex-auto w-full">
             {children}
-            <Footer />
-            <Analytics />
-            <SpeedInsights />
           </main>
+
+          <footer className="w-full flex justify-center px-6 sm:px-4 md:px-0">
+            <div className="max-w-[640px] w-full">
+              <Footer />
+            </div>
+          </footer>
+
+          <Analytics />
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
