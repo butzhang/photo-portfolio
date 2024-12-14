@@ -1,5 +1,3 @@
-import Image from "next/image";
-import fs from "fs";
 import path from "path";
 import sizeOf from "image-size";
 import CarouselClient from "./components/CarouselClient";
@@ -22,8 +20,10 @@ export default function Page() {
   });
 
   return (
-    <section className="w-full flex flex-col items-center px-4 md:px-8 lg:px-12 relative">
-      <CarouselClient images={imageDimensions} />
-    </section>
+      <section className="w-full relative">
+        {/* No need for extra px here, the layout container sets the max width */}
+        <CarouselClient images={imageDimensions}/>
+      </section>
+
   );
 }
