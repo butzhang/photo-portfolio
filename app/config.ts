@@ -8,11 +8,11 @@ export const metaData = {
 }
 
 export const socialLinks = {
-  twitter: 'https://x.com/1tssirius',
-  github: 'https://github.com/1msirius/Nextfolio',
-  instagram: 'https://www.instagram.com/',
-  linkedin: 'https://www.linkedin.com/',
-  email: 'mailto:example@gmail.com',
+  // twitter: 'https://x.com/1tssirius',
+  // github: 'https://github.com/1msirius/Nextfolio',
+  instagram: 'https://www.instagram.com/_kkkkk_zhang/',
+  // linkedin: 'https://www.linkedin.com/',
+  email: 'mailto:ke.zhang.rock@gmail.com',
 }
 
 // app/config/projects.ts
