@@ -17,9 +17,10 @@ export const socialLinks = {
 
 // app/config/projects.ts
 export const projects = [
-  { title: 'grant green', project_folder: 'grant_green' },
   { title: 'divided by', project_folder: 'divided_by' },
   { title: 'reflections on reality', project_folder: 'reflections_on_reality' },
   { title: 'street select', project_folder: 'street_select' },
+  { title: 'grant green', project_folder: 'grant_green' },
+
   // add more projects as needed
 ]
