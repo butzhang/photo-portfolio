@@ -4,8 +4,9 @@ import CarouselClient from './components/CarouselClient'
 
 export default function Page() {
   const images = [
-    { path: '/photos/home.jpg', title: null },
-    { path: '/photos/home2.jpg', title: null },
+    { path: '/photos/divided_by/light.jpg', title: null },
+    { path: '/photos/divided_by/car.jpg', title: null },
+    { path: '/photos/divided_by/musuem.jpg', title: null },
   ]
 
   const imageDimensions = images.map((img) => {

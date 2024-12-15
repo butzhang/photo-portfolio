@@ -1,13 +1,13 @@
-import "./global.css";
-import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
-import { Navbar } from "./components/nav";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import Footer from "./components/footer";
-import { ThemeProvider } from "./components/theme-switch";
-import { metaData } from "./config";
+import './global.css'
+import type { Metadata } from 'next'
+import { GeistSans } from 'geist/font/sans'
+import { GeistMono } from 'geist/font/mono'
+import { Navbar } from './components/nav'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
+import Footer from './components/footer'
+import { ThemeProvider } from './components/theme-switch'
+import { metaData } from './config'
 
 export const metadata: Metadata = {
   metadataBase: new URL(metaData.baseUrl),
@@ -22,8 +22,8 @@ export const metadata: Metadata = {
     description: metaData.description,
     url: metaData.baseUrl,
     siteName: metaData.name,
-    locale: "en_US",
-    type: "website",
+    locale: 'en_US',
+    type: 'website',
   },
   robots: {
     index: true,
@@ -31,26 +31,26 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
   },
   twitter: {
     title: metaData.name,
-    card: "summary_large_image",
+    card: 'summary_large_image',
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: '/favicon.ico',
   },
-};
+}
 
-const cx = (...classes: string[]) => classes.filter(Boolean).join(" ");
+const cx = (...classes: string[]) => classes.filter(Boolean).join(' ')
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html lang="en" className={cx(GeistSans.variable, GeistMono.variable)}>
@@ -89,14 +89,12 @@ export default function RootLayout({
           </header>
 
           {/* Main content also centered in the same max-w-7xl with px-8 */}
-          <main className="flex-auto w-full flex flex-col items-center mt-2 md:mt-6 mb-20 lg:mb-40">
-            <div className="w-full max-w-7xl px-8">
-              {children}
-            </div>
+          <main className="flex-auto w-full flex flex-col items-center mt-2 md:mt-6 mb-2 lg:mb-40">
+            <div className="w-full max-w-7xl px-8">{children}</div>
           </main>
 
-          <footer className="w-full flex justify-center px-6 sm:px-4 md:px-0">
-            <div className="max-w-[640px] w-full">
+          <footer className="w-full flex justify-center px-8">
+            <div className="max-w-7xl w-full">
               <Footer />
             </div>
           </footer>
@@ -106,5 +104,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }
