@@ -1,35 +1,35 @@
-"use client";
+'use client'
 
-import Image from "next/image";
-import { useState, useEffect } from "react";
+import Image from 'next/image'
+import { useState, useEffect } from 'react'
 
 interface ImageItem {
-  src: string;
-  width: number;
-  height: number;
-  title: string | null;
+  src: string
+  width: number
+  height: number
+  title: string | null
 }
 
 export default function CarouselClient({ images }: { images: ImageItem[] }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0)
 
   // Optional auto-scroll: uncomment to enable
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-  //   }, 5000); // every 5 seconds
-  //   return () => clearInterval(interval);
-  // }, [images.length]);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [images.length])
 
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % images.length);
-  };
+    setCurrentIndex((prev) => (prev + 1) % images.length)
+  }
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
-  };
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length)
+  }
 
-  const { src, width, height, title } = images[currentIndex];
+  const { src, width, height, title } = images[currentIndex]
 
   return (
     <div className="w-full flex flex-col items-center relative">
@@ -53,7 +53,7 @@ export default function CarouselClient({ images }: { images: ImageItem[] }) {
               <button
                 onClick={handlePrev}
                 className="absolute left-[-3rem] p-3 bg-white/70 dark:bg-black/50 hover:bg-white dark:hover:bg-black text-black dark:text-white transition-colors duration-300"
-                style={{ top: "50%", transform: "translateY(-50%)" }}
+                style={{ top: '50%', transform: 'translateY(-50%)' }}
                 aria-label="Previous image"
               >
                 &larr;
@@ -61,7 +61,7 @@ export default function CarouselClient({ images }: { images: ImageItem[] }) {
               <button
                 onClick={handleNext}
                 className="absolute right-[-3rem] p-3 bg-white/70 dark:bg-black/50 hover:bg-white dark:hover:bg-black text-black dark:text-white transition-colors duration-300"
-                style={{ top: "50%", transform: "translateY(-50%)" }}
+                style={{ top: '50%', transform: 'translateY(-50%)' }}
                 aria-label="Next image"
               >
                 &rarr;
@@ -77,7 +77,9 @@ export default function CarouselClient({ images }: { images: ImageItem[] }) {
             <div
               key={i}
               className={`w-2 h-2 rounded-full cursor-pointer ${
-                i === currentIndex ? "bg-black dark:bg-white" : "bg-gray-300 dark:bg-gray-600"
+                i === currentIndex
+                  ? 'bg-black dark:bg-white'
+                  : 'bg-gray-300 dark:bg-gray-600'
               }`}
               onClick={() => setCurrentIndex(i)}
               aria-label={`Go to image ${i + 1}`}
@@ -86,5 +88,5 @@ export default function CarouselClient({ images }: { images: ImageItem[] }) {
         </div>
       )}
     </div>
-  );
+  )
 }

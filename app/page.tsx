@@ -6,7 +6,16 @@ export default function Page() {
   const images = [
     { path: '/photos/divided_by/light.jpg', title: null },
     { path: '/photos/divided_by/car.jpg', title: null },
-    { path: '/photos/divided_by/musuem.jpg', title: null },
+    {
+      path: '/photos/reflections_on_reality/_1001206_sm_web_use.jpg',
+      title: null,
+    },
+    {
+      path: '/photos/reflections_on_reality/L1010485_sm_web_use.jpg',
+      title: null,
+    },
+    { path: '/photos/street_select/_1020965_sm_web_use.jpg', title: null },
+    { path: '/photos/street_select/_XP30869_og.jpg', title: null },
   ]
 
   const imageDimensions = images.map((img) => {
