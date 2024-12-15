@@ -14,8 +14,8 @@ export default function Page() {
       path: '/photos/reflections_on_reality/L1010485_sm_web_use.jpg',
       title: null,
     },
-    { path: '/photos/street_select/_1020965_sm_web_use.jpg', title: null },
-    { path: '/photos/street_select/_XP30869_og.jpg', title: null },
+    { path: '/photos/street_select/DSCF7723_sm_web_use.jpg', title: null },
+    { path: '/photos/street_select/L1010783_sm_web_use.jpg', title: null },
   ]
 
   const imageDimensions = images.map((img) => {
