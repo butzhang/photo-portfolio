@@ -16,11 +16,34 @@ export const socialLinks = {
 }
 
 // app/config/projects.ts
+// config/projects.ts
+// config/projects.ts
 export const projects = [
-  { title: 'divided by', project_folder: 'divided_by' },
-  { title: 'reflections on reality', project_folder: 'reflections_on_reality' },
-  { title: 'street select', project_folder: 'street_select' },
-  { title: 'grant green', project_folder: 'grant_green' },
-
+  {
+    title: 'divided by (on going)',
+    project_folder: 'divided_by',
+    imageOrder: ['light.jpg', 'XPR34717_sm_web_use.jpg', 'car.jpg'],
+    excludes: ['_1000852_sm_web_use.jpg'], // These won't show even if they exist
+  },
+  {
+    title: 'reflections on reality (on going)',
+    project_folder: 'reflections_on_reality',
+    imageOrder: [
+      '_1001206_sm_web_use.jpg',
+      '_1001650_sm_web_use.jpg',
+      'L1001625_sm_web_use.jpg',
+    ],
+    excludes: [], // Example exclusion
+  },
+  {
+    title: 'street select work  (on going)',
+    project_folder: 'street_select',
+    imageOrder: [
+      '_1020965_sm_web_use.jpg',
+      'L1010783_sm_web_use.jpg',
+      'DSCF7723_sm_web_use.jpg',
+    ],
+    excludes: [],
+  },
   // add more projects as needed
 ]
