@@ -83,26 +83,25 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <header className="w-full flex justify-center">
-            <div className="w-full max-w-7xl px-8 py-5 flex items-center justify-between">
+            {/* Use a custom max width like 1200px for a bit wider layout than 7xl */}
+            <div className="w-full max-w-[1200px] px-8 py-5 flex items-center justify-between">
               <a
                 href="/"
                 className="text-xl font-serif tracking-wide hover:opacity-80 transition-opacity lowercase"
               >
                 {metaData.title}
               </a>
-              {/* Desktop Navigation */}
               <DesktopNav />
-              {/* Mobile Navigation */}
               <MobileNav />
             </div>
           </header>
 
           <main className="flex-auto w-full flex flex-col items-center mt-2 md:mt-6 mb-2 lg:mb-40">
-            <div className="w-full max-w-7xl px-8">{children}</div>
+            <div className="w-full max-w-[1200px] px-8">{children}</div>
           </main>
 
           <footer className="w-full flex justify-center px-8">
-            <div className="max-w-7xl w-full">
+            <div className="max-w-[1200px] w-full">
               <Footer />
             </div>
           </footer>

@@ -54,18 +54,18 @@ export default function ProjectPage({
   }
 
   return (
-    <main className="w-full flex flex-col items-center justify-start px-8 md:px-12 lg:px-20 mt-6">
+    <main className="w-full flex flex-col items-center justify-start px-8 mt-6">
       <h1 className="text-xl md:text-2xl font-serif tracking-wide mb-2 lowercase text-center">
         {project.title}
       </h1>
-      {/* If you add a subtitle in the project config, you can display it here */}
       {project.subtitle && (
         <p className="text-sm font-light mb-10 max-w-md text-center leading-relaxed lowercase">
           {project.subtitle}
         </p>
       )}
 
-      <div className="w-full max-w-5xl flex flex-col gap-8">
+      {/* Use same 1200px max width for consistency */}
+      <div className="w-full max-w-[1200px] flex flex-col gap-8">
         {images.map((img) => (
           <div key={img} className="relative w-full h-auto">
             <Image
