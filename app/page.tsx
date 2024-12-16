@@ -24,21 +24,31 @@ export default function Page() {
       'public',
       img.path.replace(/^\//, ''),
     )
+
     const { width, height } = sizeOf(filePath)
     if (!width || !height) {
       throw new Error(`Could not determine dimensions for image: ${img.path}`)
     }
+
+    // Extract project_folder from the path: /photos/{project_folder}/{image_name}
+    // Splitting by '/' yields ['', 'photos', '{project_folder}', '{image_name}']
+    const parts = img.path.split('/')
+    const project_folder = parts[2]
+
+    // Construct link to the project's page
+    const link = `/projects/${project_folder}`
+
     return {
       src: img.path,
       width,
       height,
       title: img.title,
+      link,
     }
   })
 
   return (
     <section className="w-full relative">
-      {/* No need for extra px here, the layout container sets the max width */}
       <CarouselClient images={imageDimensions} />
     </section>
   )
