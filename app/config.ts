@@ -7,7 +7,15 @@ export const metaData = {
     'A clean, fast, and lightweight portfolio template built with Next.js, Vercel, and Tailwind CSS for optimal performance.',
 }
 
-export const socialLinks = {
+interface SocialLinks {
+  twitter?: string
+  instagram?: string
+  linkedin?: string
+  email?: string
+  github?: string
+}
+
+export const socialLinks: SocialLinks = {
   // twitter: 'https://x.com/1tssirius',
   // github: 'https://github.com/1msirius/Nextfolio',
   instagram: 'https://www.instagram.com/_kkkkk_zhang/',
