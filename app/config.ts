@@ -53,5 +53,19 @@ export const projects = [
     ],
     excludes: [],
   },
+  {
+    title: 'Graduation (2014)',
+    project_folder: 'Graduation',
+    imageOrder: [
+      'rolleflex468_sm_web_use.jpg',
+      'rolleflex466_sm_web_use.jpg',
+      'rolleflex473_sm_web_use.jpg',
+      'rolleflex471_sm_web_use.jpg',
+      'rolleflex476_sm_web_use.jpg',
+      'rolleflex478_sm_web_use 1.jpg',
+      'rolleflex477_sm_web_use.jpg',
+    ],
+    excludes: [],
+  },
   // add more projects as needed
 ]
