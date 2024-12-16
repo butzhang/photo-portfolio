@@ -30,12 +30,14 @@ export const projects = [
   {
     title: 'divided by (on going)',
     project_folder: 'divided_by',
+    subtitle: '',
     imageOrder: ['light.jpg', 'XPR34717_sm_web_use.jpg', 'car.jpg'],
     excludes: ['_1000852_sm_web_use.jpg'], // These won't show even if they exist
   },
   {
     title: 'reflections on reality (on going)',
     project_folder: 'reflections_on_reality',
+    subtitle: '',
     imageOrder: [
       '_1001206_sm_web_use.jpg',
       '_1001650_sm_web_use.jpg',
@@ -45,6 +47,7 @@ export const projects = [
   },
   {
     title: 'street select work  (on going)',
+    subtitle: '',
     project_folder: 'street_select',
     imageOrder: [
       '_1020965_sm_web_use.jpg',
@@ -54,8 +57,9 @@ export const projects = [
     excludes: [],
   },
   {
-    title: 'Graduation (2014)',
+    title: 'Graduation 2014',
     project_folder: 'Graduation',
+    subtitle: 'Pictures taken in 2014, for my classmates and myself',
     imageOrder: [
       'rolleflex468_sm_web_use.jpg',
       'rolleflex466_sm_web_use.jpg',

@@ -39,8 +39,8 @@ export default function ProjectPage({
       images = images.filter((img) => !project.excludes.includes(img))
     }
 
+    // Order images if imageOrder is specified
     if (project.imageOrder && project.imageOrder.length > 0) {
-      // Filter imageOrder for excludes (in case imageOrder lists something excluded)
       const ordered = project.imageOrder.filter((img) => images.includes(img))
       const remaining = images
         .filter((img) => !project.imageOrder!.includes(img))
@@ -54,13 +54,16 @@ export default function ProjectPage({
   }
 
   return (
-    <main className="w-full flex flex-col items-center justify-start px-8 md:px-12 lg:px-20">
-      <h1 className="text-2xl font-serif tracking-wide mb-2">
+    <main className="w-full flex flex-col items-center justify-start px-8 md:px-12 lg:px-20 mt-6">
+      <h1 className="text-xl md:text-2xl font-serif tracking-wide mb-2 lowercase text-center">
         {project.title}
       </h1>
-      <p className="text-sm font-light mb-10 max-w-md text-center leading-relaxed">
-        {/* Optional project description */}
-      </p>
+      {/* If you add a subtitle in the project config, you can display it here */}
+      {project.subtitle && (
+        <p className="text-sm font-light mb-10 max-w-md text-center leading-relaxed lowercase">
+          {project.subtitle}
+        </p>
+      )}
 
       <div className="w-full max-w-5xl flex flex-col gap-8">
         {images.map((img) => (
