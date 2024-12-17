@@ -28,16 +28,16 @@ export const socialLinks: SocialLinks = {
 // config/projects.ts
 export const projects = [
   {
-    title: 'Divided By (on going)',
+    title: 'Divided By 2024 (on going)',
     project_folder: 'divided_by',
-    subtitle: '',
+    subtitle: ' ',
     imageOrder: ['light.jpg', 'XPR34717_sm_web_use.jpg', 'car.jpg'],
     excludes: ['_1000852_sm_web_use.jpg'], // These won't show even if they exist
   },
   {
-    title: 'Reflections on Reality (on going)',
+    title: 'Reflections on Reality 2024 (on going)',
     project_folder: 'reflections_on_reality',
-    subtitle: '',
+    subtitle: ' ',
     imageOrder: [
       '_1001206_sm_web_use.jpg',
       '_1001650_sm_web_use.jpg',
@@ -46,14 +46,24 @@ export const projects = [
     excludes: [], // Example exclusion
   },
   {
-    title: 'Street Select Work  (on going)',
-    subtitle: '',
+    title: 'Street Select Work 2024 (on going)',
+    subtitle: ' ',
     project_folder: 'street_select',
     imageOrder: [
       '_1020965_sm_web_use.jpg',
       'L1010783_sm_web_use.jpg',
       'DSCF7723_sm_web_use.jpg',
     ],
+    excludes: [],
+  },
+  {
+    title: 'Home or not 2015',
+    project_folder: 'hometown_2015',
+    subtitle:
+      '一直以来对于家乡始终有一种难以形容，若即若离的不归属感。\n  ' +
+      '\n' +
+      '2014-2015，由于身体原因我在家Gap一年。\n \n  有一天我去南昌大桥的另一边红谷滩拍照，\n \n 想要将这种情感记录下来 ',
+    imageOrder: ['leica293dr 1_sm_web_use.jpg', 'eos322p_sm_web_use.jpg'],
     excludes: [],
   },
   {

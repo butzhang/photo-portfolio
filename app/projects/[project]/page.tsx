@@ -1,6 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 import Image from 'next/image'
+import ReactMarkdown from 'react-markdown'
+
 import { projects } from '../../config'
 
 export async function generateStaticParams() {
@@ -59,9 +61,9 @@ export default function ProjectPage({
         {project.title.toWellFormed()}
       </h1>
       {project.subtitle && (
-        <p className="text-sm font-light mb-10 max-w-md text-center leading-relaxed lowercase">
-          {project.subtitle}
-        </p>
+        <div className="text-sm font-light mb-10 max-w-md text-center leading-relaxed">
+          <ReactMarkdown>{project.subtitle}</ReactMarkdown>
+        </div>
       )}
 
       {/* Use same 1200px max width for consistency */}
