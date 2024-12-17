@@ -71,5 +71,13 @@ export const projects = [
     ],
     excludes: [],
   },
+
+  {
+    title: 'Nostalgia Donghu Lake 2014',
+    project_folder: 'donghu',
+    subtitle: '',
+    imageOrder: ['000385_sm_web_use.jpg', 'leica568wuhan_sm_web_use.jpg'],
+    excludes: [],
+  },
   // add more projects as needed
 ]

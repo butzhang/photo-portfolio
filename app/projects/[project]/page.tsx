@@ -55,8 +55,8 @@ export default function ProjectPage({
 
   return (
     <main className="w-full flex flex-col items-center justify-start px-8 mt-6">
-      <h1 className="text-xl md:text-2xl font-serif tracking-wide mb-2 lowercase text-center">
-        {project.title}
+      <h1 className="text-xl md:text-2xl font-serif tracking-wide mb-2  text-center">
+        {project.title.toWellFormed()}
       </h1>
       {project.subtitle && (
         <p className="text-sm font-light mb-10 max-w-md text-center leading-relaxed lowercase">
