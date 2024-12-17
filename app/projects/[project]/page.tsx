@@ -56,7 +56,7 @@ export default function ProjectPage({
 
   return (
     <main className="w-full flex flex-col items-center justify-start px-8 mt-6">
-      <h1 className="text-xl md:text-2xl font-serif tracking-wide mb-2  text-center">
+      <h1 className="text-xl md:text-2xl font-serif tracking-wide mb-2 text-center">
         {project.title.toWellFormed()}
       </h1>
       {project.subtitle && (
@@ -68,14 +68,17 @@ export default function ProjectPage({
       {/* Use same 1200px max width for consistency */}
       <div className="w-full max-w-[1200px] flex flex-col gap-8">
         {images.map((img) => {
-          // Get the actual image dimensions
           const imagePath = path.join(projectPath, img)
-          const { width: originalWidth, height: originalHeight } =
-            sizeOf(imagePath)
+          const dimensions = sizeOf(imagePath)
+          const originalWidth = dimensions.width
+          const originalHeight = dimensions.height
+
+          // If dimensions cannot be determined, skip rendering this image
+          if (!originalWidth || !originalHeight) {
+            return null
+          }
 
           const isPortrait = originalHeight > originalWidth
-          // If portrait, apply a smaller max-width within the 1200px frame
-          // Add `mx-auto` to center it horizontally
           const className = isPortrait ? 'max-w-[700px] mx-auto' : ''
 
           return (
