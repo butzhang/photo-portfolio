@@ -15,6 +15,7 @@ export default function Page() {
       title: null,
     },
     { path: '/photos/street_select/L1010783_sm_web_use.jpg', title: null },
+    { path: '/photos/hometown_2015/leica295dr_sm_web_use 1.jpg', title: null },
     { path: '/photos/donghu/000385_sm_web_use.jpg', title: null },
     { path: '/photos/donghu/leica568wuhan_sm_web_use.jpg', title: null },
     { path: '/photos/Graduation/rolleflex466_sm_web_use.jpg', title: null },
