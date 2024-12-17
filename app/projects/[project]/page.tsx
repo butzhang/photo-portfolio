@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
+import sizeOf from 'image-size'
 
 import { projects } from '../../config'
 
@@ -36,12 +37,10 @@ export default function ProjectPage({
       .readdirSync(projectPath)
       .filter((file) => /\.(jpe?g|png|gif|webp|avif)$/i.test(file))
 
-    // Filter out excluded images
     if (project.excludes && project.excludes.length > 0) {
-      images = images.filter((img) => !project.excludes.includes(img))
+      images = images.filter((img) => !project.excludes!.includes(img))
     }
 
-    // Order images if imageOrder is specified
     if (project.imageOrder && project.imageOrder.length > 0) {
       const ordered = project.imageOrder.filter((img) => images.includes(img))
       const remaining = images
@@ -49,7 +48,7 @@ export default function ProjectPage({
         .sort()
       images = [...ordered, ...remaining]
     } else {
-      images.sort() // alphabetical if no imageOrder
+      images.sort()
     }
   } catch (error) {
     console.error(error)
@@ -68,18 +67,30 @@ export default function ProjectPage({
 
       {/* Use same 1200px max width for consistency */}
       <div className="w-full max-w-[1200px] flex flex-col gap-8">
-        {images.map((img) => (
-          <div key={img} className="relative w-full h-auto">
-            <Image
-              src={`/photos/${project.project_folder}/${img}`}
-              alt={img}
-              width={1600}
-              height={1200}
-              className="w-full h-auto object-contain"
-              priority={true}
-            />
-          </div>
-        ))}
+        {images.map((img) => {
+          // Get the actual image dimensions
+          const imagePath = path.join(projectPath, img)
+          const { width: originalWidth, height: originalHeight } =
+            sizeOf(imagePath)
+
+          const isPortrait = originalHeight > originalWidth
+          // If portrait, apply a smaller max-width within the 1200px frame
+          // Add `mx-auto` to center it horizontally
+          const className = isPortrait ? 'max-w-[700px] mx-auto' : ''
+
+          return (
+            <div key={img} className="relative w-full h-auto">
+              <Image
+                src={`/photos/${project.project_folder}/${img}`}
+                alt={img}
+                width={originalWidth}
+                height={originalHeight}
+                className={`w-full h-auto object-contain ${className}`}
+                priority={true}
+              />
+            </div>
+          )
+        })}
       </div>
     </main>
   )

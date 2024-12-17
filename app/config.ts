@@ -62,8 +62,18 @@ export const projects = [
     subtitle:
       '一直以来对于家乡始终有一种难以形容，若即若离的不归属感。\n  ' +
       '\n' +
-      '2014-2015，由于身体原因我在家Gap一年。\n \n  有一天我去南昌大桥的另一边红谷滩拍照，\n \n 想要将这种情感记录下来 ',
-    imageOrder: ['leica293dr 1_sm_web_use.jpg', 'eos322p_sm_web_use.jpg'],
+      '2014-2015，由于身体原因我在家Gap一年。\n \n ' +
+      ' 有一天我去南昌大桥的另一边红谷滩拍照，\n \n ' +
+      '想要将这种情感记录下来 \n \n 而最后一张是从家阳台看出去的景色',
+    imageOrder: [
+      'leica295dr_sm_web_use 1.jpg',
+      'LEICA718p_sm_web_use.jpg',
+      'LEICA748p_sm_web_use.jpg',
+      'eos322p_sm_web_use.jpg',
+      'leica293dr 1_sm_web_use.jpg',
+      'hexar183afp_sm_web_use.jpg',
+      'img028 1_sm_web_use.jpg',
+    ],
     excludes: [],
   },
   {
