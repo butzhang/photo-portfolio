@@ -28,14 +28,14 @@ export const socialLinks: SocialLinks = {
 // config/projects.ts
 export const projects = [
   {
-    title: 'divided by (on going)',
+    title: 'Divided By (on going)',
     project_folder: 'divided_by',
     subtitle: '',
     imageOrder: ['light.jpg', 'XPR34717_sm_web_use.jpg', 'car.jpg'],
     excludes: ['_1000852_sm_web_use.jpg'], // These won't show even if they exist
   },
   {
-    title: 'reflections on reality (on going)',
+    title: 'Reflections on Reality (on going)',
     project_folder: 'reflections_on_reality',
     subtitle: '',
     imageOrder: [
@@ -46,7 +46,7 @@ export const projects = [
     excludes: [], // Example exclusion
   },
   {
-    title: 'street select work  (on going)',
+    title: 'Street Select Work  (on going)',
     subtitle: '',
     project_folder: 'street_select',
     imageOrder: [
