@@ -78,7 +78,7 @@ export default function ProjectPage({
             return null
           }
 
-          const isPortrait = originalHeight > originalWidth
+          const isPortrait = originalHeight > originalWidth * 1.2
           const className = isPortrait ? 'max-w-[700px] mx-auto' : ''
 
           return (
