@@ -38,11 +38,7 @@ export const projects = [
     title: 'Reflections on Reality 2024 (on going)',
     project_folder: 'reflections_on_reality',
     subtitle: ' ',
-    imageOrder: [
-      '_1001206_sm_web_use.jpg',
-      '_1001650_sm_web_use.jpg',
-      'L1001625_sm_web_use.jpg',
-    ],
+    imageOrder: ['_1001206_sm_web_use.jpg', 'L1011137 1 1_sm_web_use.jpg'],
     excludes: [], // Example exclusion
   },
   {
