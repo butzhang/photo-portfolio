@@ -2,9 +2,8 @@ export const metaData = {
   baseUrl: 'https://nextfolio-template.vercel.app/',
   title: 'Ke Zhang',
   name: 'Ke Zhang',
-  ogImage: '/opengraph-image.png',
-  description:
-    'A clean, fast, and lightweight portfolio template built with Next.js, Vercel, and Tailwind CSS for optimal performance.',
+  ogImage: '/selfie.jpg',
+  description: 'Something about his story',
 }
 
 interface SocialLinks {
