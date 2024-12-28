@@ -7,6 +7,10 @@ export default function Page() {
     { path: '/photos/divided_by/light.jpg', title: null },
     { path: '/photos/divided_by/car.jpg', title: null },
     {
+      path: '/photos/reflections_on_reality/L1011420 1_sm_web_use.jpg',
+      title: null,
+    },
+    {
       path: '/photos/reflections_on_reality/_1001206_sm_web_use.jpg',
       title: null,
     },
