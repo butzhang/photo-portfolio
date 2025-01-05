@@ -4,6 +4,10 @@ import CarouselClient from './components/CarouselClient'
 
 export default function Page() {
   const images = [
+    {
+      path: '/photos/divided_by/L1000529_small-small_version-2.jpg',
+      title: '',
+    },
     { path: '/photos/divided_by/light.jpg', title: null },
     { path: '/photos/divided_by/car.jpg', title: null },
     {
