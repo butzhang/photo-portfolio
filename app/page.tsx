@@ -5,6 +5,18 @@ import CarouselClient from './components/CarouselClient'
 export default function Page() {
   const images = [
     {
+      path: '/photos/sf_trail/R0001368_small.jpg',
+      title: '',
+    },
+    {
+      path: '/photos/sf_trail/R0001862_small-2.jpg',
+      title: '',
+    },
+    {
+      path: '/photos/street_select_2025/L1009491_og_2025.jpg',
+      title: '',
+    },
+    {
       path: '/photos/divided_by/L1000529_small-small_version-2.jpg',
       title: '',
     },

@@ -27,21 +27,35 @@ export const socialLinks: SocialLinks = {
 // config/projects.ts
 export const projects = [
   {
-    title: 'Reflections on Reality 2024 (on going)',
+    title: 'San Francisco trail story 2025(on going)',
+    project_folder: 'sf_trail',
+    subtitle: ' ',
+    imageOrder: [],
+    excludes: [], // Example exclusion
+  },
+  {
+    title: 'Street select 2025(on going)',
+    project_folder: 'street_select_2025',
+    subtitle: ' ',
+    imageOrder: [],
+    excludes: [], // Example exclusion
+  },
+  {
+    title: 'Reflections on Reality 2024',
     project_folder: 'reflections_on_reality',
     subtitle: ' ',
     imageOrder: ['_1001206_sm_web_use.jpg', 'L1011137 1 1_sm_web_use.jpg'],
     excludes: [], // Example exclusion
   },
   {
-    title: 'Divided By 2024 (on going)',
+    title: 'Divided By 2024',
     project_folder: 'divided_by',
     subtitle: ' ',
     imageOrder: ['light.jpg', 'XPR34717_sm_web_use.jpg', 'car.jpg'],
     excludes: ['_1000852_sm_web_use.jpg'], // These won't show even if they exist
   },
   {
-    title: 'Street Select Work 2024 (on going)',
+    title: 'Street Select Work 2024',
     subtitle: ' ',
     project_folder: 'street_select',
     imageOrder: [
