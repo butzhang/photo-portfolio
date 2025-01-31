@@ -29,7 +29,7 @@ export const projects = [
   {
     title: 'San Francisco trail story 2025 (on going)',
     project_folder: 'sf_trail',
-    subtitle: ' ',
+    subtitle: 'I want to get closer to, people',
     imageOrder: [],
     excludes: [], // Example exclusion
   },
