@@ -27,14 +27,14 @@ export const socialLinks: SocialLinks = {
 // config/projects.ts
 export const projects = [
   {
-    title: 'San Francisco trail story 2025(on going)',
+    title: 'San Francisco trail story 2025 (on going)',
     project_folder: 'sf_trail',
     subtitle: ' ',
     imageOrder: [],
     excludes: [], // Example exclusion
   },
   {
-    title: 'Street select 2025(on going)',
+    title: 'Street select 2025 (on going)',
     project_folder: 'street_select_2025',
     subtitle: ' ',
     imageOrder: [],
