@@ -28,7 +28,7 @@ export const socialLinks: SocialLinks = {
 export const projects = [
   {
     title: 'On the Edge of City 2025 (on going)',
-    project_folder: 'ed_of_city',
+    project_folder: 'edge_of_city',
     subtitle: '社会的边缘',
     imageOrder: [],
     excludes: [], // Example exclusion

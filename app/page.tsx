@@ -5,6 +5,10 @@ import CarouselClient from './components/CarouselClient'
 export default function Page() {
   const images = [
     {
+      path: '/photos/edge_of_city/R00027822025.jpg',
+      title: '',
+    },
+    {
       path: '/photos/sf_trail/R0001368_small.jpg',
       title: '',
     },
