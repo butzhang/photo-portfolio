@@ -29,7 +29,7 @@ export const projects = [
   {
     title: 'On the Edge of City 2025 (on going)',
     project_folder: 'edge_of_city',
-    subtitle: '社会的边缘',
+    subtitle: '',
     imageOrder: [],
     excludes: [], // Example exclusion
   },
