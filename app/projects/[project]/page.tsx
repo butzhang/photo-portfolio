@@ -1,8 +1,8 @@
 import fs from 'fs'
 import path from 'path'
-import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
 import sizeOf from 'image-size'
+import { getCloudinaryUrl } from '../../lib/cloudinary'
 
 import { projects } from '../../config'
 
@@ -81,15 +81,21 @@ export default function ProjectPage({
           const isPortrait = originalHeight > originalWidth * 1.2
           const className = isPortrait ? 'max-w-[700px] mx-auto' : ''
 
+          // Local path for the image
+          const localImagePath = `/photos/${project.project_folder}/${img}`
+
+          // Get the Cloudinary URL
+          const cloudinaryUrl = getCloudinaryUrl(localImagePath)
+
           return (
             <div key={img} className="relative w-full h-auto">
-              <Image
-                src={`/photos/${project.project_folder}/${img}`}
+              <img
+                src={cloudinaryUrl}
                 alt={img}
                 width={originalWidth}
                 height={originalHeight}
                 className={`w-full h-auto object-contain ${className}`}
-                priority={true}
+                loading="lazy"
               />
             </div>
           )

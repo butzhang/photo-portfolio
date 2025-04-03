@@ -11,43 +11,42 @@ interface ImageItem {
   link: string
 }
 
-interface CarouselClientProps {
+interface SimpleCarouselProps {
   images: ImageItem[]
-  autoScroll?: boolean // Optionally control whether to auto-scroll
-  interval?: number // How often to change images, in ms
+  autoScroll?: boolean
+  interval?: number
 }
 
-export default function CarouselClient({
+// A very simple carousel using plain HTML img tags
+export default function SimpleCarousel({
   images,
+  autoScroll = true,
   interval = 5000,
-}: CarouselClientProps) {
+}: SimpleCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
 
-  // Auto-scroll logic: move to next image every 'interval' ms
+  // Auto-scroll logic
   useEffect(() => {
-    if (images.length <= 1) return
+    if (!autoScroll || images.length <= 1) return
 
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
     }, interval)
 
     return () => clearInterval(timer)
-  }, [images.length, interval])
+  }, [images.length, autoScroll, interval])
 
-  const { src, width, height, title, link } = images[currentIndex]
+  const { src, title, link } = images[currentIndex]
 
   return (
     <div className="w-full flex flex-col items-center">
       <div className="relative w-full max-w-7xl flex items-center justify-center mt-8">
         <Link href={link}>
+          {/* Use regular HTML img tag instead of Next.js Image */}
           <img
             src={src}
             alt={title || `Portfolio image ${currentIndex + 1}`}
-            width={width}
-            height={height}
-            className="max-w-full h-auto transition-opacity duration-500 cursor-pointer"
-            priority="true"
-            quality={85}
+            className="max-w-full h-auto cursor-pointer"
           />
         </Link>
       </div>
@@ -64,8 +63,8 @@ export default function CarouselClient({
                   ? 'bg-black dark:bg-white'
                   : 'bg-gray-300 dark:bg-gray-600'
               }`}
-              aria-label={`Go to image ${i + 1}`}
-            ></button>
+              aria-label={`Go to slide ${i + 1}`}
+            />
           ))}
         </div>
       )}

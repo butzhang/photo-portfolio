@@ -1,82 +1,162 @@
-import path from 'path'
-import sizeOf from 'image-size'
-import CarouselClient from './components/CarouselClient'
+'use client'
+
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import { getCloudinaryUrl, fetchCloudinaryMapping } from './lib/cloudinary'
 
 export default function Page() {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [imageUrls, setImageUrls] = useState({})
+  const [isLoading, setIsLoading] = useState(true)
+
+  // Define local image paths - they will be converted to Cloudinary URLs using our mapping
   const images = [
     {
-      path: '/photos/edge_of_city/R00027822025.jpg',
+      localPath: '/photos/edge_of_city/R00027822025.jpg',
+      alt: 'Edge of City',
       title: '',
+      link: '/projects/edge_of_city',
     },
     {
-      path: '/photos/sf_trail/R0001368_small.jpg',
+      localPath: '/photos/sf_trail/R0001368_small.jpg',
+      alt: 'SF Trail',
       title: '',
+      link: '/projects/sf_trail',
     },
     {
-      path: '/photos/sf_trail/R0001862_small-2.jpg',
+      localPath: '/photos/sf_trail/R0001862_small-2.jpg',
+      alt: 'SF Trail 2',
       title: '',
+      link: '/projects/sf_trail',
     },
     {
-      path: '/photos/street_select_2025/L1009491_og_2025.jpg',
+      localPath: '/photos/street_select_2025/L1009491_og_2025.jpg',
+      alt: 'Street Select',
       title: '',
+      link: '/projects/street_select_2025',
     },
     {
-      path: '/photos/divided_by/L1000529_small-small_version-2.jpg',
+      localPath: '/photos/divided_by/L1000529_small-small_version-2.jpg',
+      alt: 'Divided By',
       title: '',
+      link: '/projects/divided_by',
     },
-    { path: '/photos/divided_by/light.jpg', title: null },
-    { path: '/photos/divided_by/car.jpg', title: null },
     {
-      path: '/photos/reflections_on_reality/L1011420 1_sm_web_use.jpg',
+      localPath: '/photos/divided_by/light.jpg',
+      alt: 'Light',
       title: null,
+      link: '/projects/divided_by',
     },
     {
-      path: '/photos/reflections_on_reality/_1001206_sm_web_use.jpg',
+      localPath: '/photos/divided_by/car.jpg',
+      alt: 'Car',
       title: null,
+      link: '/projects/divided_by',
     },
     {
-      path: '/photos/reflections_on_reality/L1010485_sm_web_use.jpg',
+      localPath: '/photos/reflections_on_reality/L1011420 1_sm_web_use.jpg',
+      alt: 'Reflections on Reality 1',
       title: null,
+      link: '/projects/reflections_on_reality',
     },
-    { path: '/photos/street_select/L1010783_sm_web_use.jpg', title: null },
-    { path: '/photos/hometown_2015/leica295dr_sm_web_use 1.jpg', title: null },
-    { path: '/photos/donghu/000385_sm_web_use.jpg', title: null },
-    { path: '/photos/donghu/leica568wuhan_sm_web_use.jpg', title: null },
-    { path: '/photos/Graduation/rolleflex466_sm_web_use.jpg', title: null },
+    {
+      localPath: '/photos/reflections_on_reality/_1001206_sm_web_use.jpg',
+      alt: 'Reflections on Reality 2',
+      title: null,
+      link: '/projects/reflections_on_reality',
+    },
   ]
 
-  const imageDimensions = images.map((img) => {
-    const filePath = path.join(
-      process.cwd(),
-      'public',
-      img.path.replace(/^\//, ''),
+  // Load Cloudinary mapping and process images
+  useEffect(() => {
+    async function loadImages() {
+      try {
+        setIsLoading(true)
+        await fetchCloudinaryMapping()
+
+        // Process each image to get the Cloudinary URL or fallback
+        const processedImages = images.map((img) => ({
+          ...img,
+          src: getCloudinaryUrl(img.localPath),
+        }))
+
+        // Create a mapping for easy access
+        const urlMap = {}
+        processedImages.forEach((img) => {
+          urlMap[img.localPath] = img.src
+        })
+
+        setImageUrls(urlMap)
+        setIsLoading(false)
+      } catch (error) {
+        console.error('Error loading images:', error)
+        setIsLoading(false)
+      }
+    }
+
+    loadImages()
+  }, [])
+
+  // Auto-scroll logic
+  useEffect(() => {
+    if (images.length <= 1 || isLoading) return
+
+    const timer = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
+    }, 5000)
+
+    return () => clearInterval(timer)
+  }, [images.length, isLoading])
+
+  // Current image - with fallback to local path during loading
+  const currentImage = images[currentIndex]
+  const currentImageSrc =
+    imageUrls[currentImage.localPath] || currentImage.localPath
+
+  // Show loading placeholder during initial load
+  if (isLoading) {
+    return (
+      <section
+        className="w-full flex justify-center items-center"
+        style={{ minHeight: '60vh' }}
+      >
+        <div className="text-gray-500">Loading gallery...</div>
+      </section>
     )
+  }
 
-    const { width, height } = sizeOf(filePath)
-    if (!width || !height) {
-      throw new Error(`Could not determine dimensions for image: ${img.path}`)
-    }
-
-    // Extract project_folder from the path: /photos/{project_folder}/{image_name}
-    // Splitting by '/' yields ['', 'photos', '{project_folder}', '{image_name}']
-    const parts = img.path.split('/')
-    const project_folder = parts[2]
-
-    // Construct link to the project's page
-    const link = `/projects/${project_folder}`
-
-    return {
-      src: img.path,
-      width,
-      height,
-      title: img.title,
-      link,
-    }
-  })
+  // Force using Cloudinary URLs - don't use local fallbacks
 
   return (
     <section className="w-full relative">
-      <CarouselClient images={imageDimensions} />
+      {/* Main carousel - uses full width */}
+      <div className="w-full">
+        <Link href={currentImage.link}>
+          <img
+            src={currentImageSrc}
+            alt={currentImage.alt}
+            className="w-full h-auto transition-opacity duration-500 cursor-pointer"
+          />
+        </Link>
+      </div>
+
+      {/* Navigation Dots - maintaining original styling */}
+      <div className="flex space-x-2 mt-6 justify-center">
+        {images.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => {
+              setCurrentIndex(i)
+            }}
+            className={`w-2 h-2 rounded-full cursor-pointer ${
+              i === currentIndex
+                ? 'bg-black dark:bg-white'
+                : 'bg-gray-300 dark:bg-gray-600'
+            }`}
+            aria-label={`Go to image ${i + 1}`}
+          />
+        ))}
+      </div>
     </section>
   )
 }
