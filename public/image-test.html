@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Static Image Test</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    h1 {
+      color: #333;
+    }
+    
+    .image-container {
+      margin: 20px 0;
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    .path {
+      font-family: monospace;
+      background: #f5f5f5;
+      padding: 5px;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Static Image Test</h1>
+  
+  <div class="image-container">
+    <h2>Direct HTML Image</h2>
+    <img src="/photos/edge_of_city/R00027822025.jpg" alt="Test image">
+    <p>Path: <span class="path">/photos/edge_of_city/R00027822025.jpg</span></p>
+  </div>
+  
+  <div class="image-container">
+    <h2>Absolute URL Image</h2>
+    <img src="http://localhost:3000/photos/edge_of_city/R00027822025.jpg" alt="Test image with absolute URL">
+    <p>Path: <span class="path">http://localhost:3000/photos/edge_of_city/R00027822025.jpg</span></p>
+  </div>
+</body>
+</html>

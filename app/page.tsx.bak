@@ -1,0 +1,119 @@
+import SimpleCarousel from './components/SimpleCarousel'
+
+// Fall back to using local images until we solve the Cloudinary issue
+export default function Page() {
+  // Use local images from public folder
+  const images = [
+    {
+      src: '/photos/edge_of_city/R00027822025.jpg',
+      width: 2877,
+      height: 2877,
+      title: '',
+      link: '/projects/edge_of_city',
+    },
+    {
+      src: '/photos/sf_trail/R0001368_small.jpg',
+      width: 2877,
+      height: 2877,
+      title: '',
+      link: '/projects/sf_trail',
+    },
+    {
+      src: '/photos/sf_trail/R0001862_small-2.jpg',
+      width: 2877,
+      height: 2877,
+      title: '',
+      link: '/projects/sf_trail',
+    },
+    {
+      src: '/photos/street_select_2025/L1009491_og_2025.jpg',
+      width: 2877,
+      height: 2877,
+      title: '',
+      link: '/projects/street_select_2025',
+    },
+    {
+      src: '/photos/divided_by/L1000529_small-small_version-2.jpg',
+      width: 2877,
+      height: 2877,
+      title: '',
+      link: '/projects/divided_by',
+    },
+    { 
+      src: '/photos/divided_by/light.jpg', 
+      width: 2877,
+      height: 2877,
+      title: null,
+      link: '/projects/divided_by',
+    },
+    { 
+      src: '/photos/divided_by/car.jpg', 
+      width: 2877,
+      height: 2877,
+      title: null,
+      link: '/projects/divided_by',
+    },
+    {
+      src: '/photos/reflections_on_reality/L1011420 1_sm_web_use.jpg',
+      width: 2877,
+      height: 2877,
+      title: null,
+      link: '/projects/reflections_on_reality',
+    },
+    {
+      src: '/photos/reflections_on_reality/_1001206_sm_web_use.jpg',
+      width: 2877,
+      height: 2877,
+      title: null,
+      link: '/projects/reflections_on_reality',
+    },
+    {
+      src: '/photos/reflections_on_reality/L1010485_sm_web_use.jpg',
+      width: 2877,
+      height: 2877,
+      title: null,
+      link: '/projects/reflections_on_reality',
+    },
+    { 
+      src: '/photos/street_select/L1010783_sm_web_use.jpg', 
+      width: 2877,
+      height: 2877,
+      title: null,
+      link: '/projects/street_select',
+    },
+    { 
+      src: '/photos/hometown_2015/leica295dr_sm_web_use 1.jpg', 
+      width: 2877,
+      height: 2877,
+      title: null,
+      link: '/projects/hometown_2015',
+    },
+    { 
+      src: '/photos/donghu/000385_sm_web_use.jpg', 
+      width: 2877,
+      height: 2877,
+      title: null,
+      link: '/projects/donghu',
+    },
+    { 
+      src: '/photos/donghu/leica568wuhan_sm_web_use.jpg', 
+      width: 2877,
+      height: 2877,
+      title: null,
+      link: '/projects/donghu',
+    },
+    { 
+      src: '/photos/Graduation/rolleflex466_sm_web_use.jpg', 
+      width: 2877,
+      height: 2877,
+      title: null,
+      link: '/projects/Graduation',
+    },
+  ];
+
+  return (
+    <section className="w-full relative">
+      <SimpleCarousel images={images} />
+    </section>
+  )
+}
