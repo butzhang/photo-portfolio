@@ -72,13 +72,23 @@ export default function Page() {
     async function loadImages() {
       try {
         setIsLoading(true)
-        await fetchCloudinaryMapping()
+        console.log('Fetching Cloudinary mapping...')
+        const mappingData = await fetchCloudinaryMapping()
+        console.log(
+          'Mapping data received:',
+          Object.keys(mappingData).length,
+          'entries',
+        )
 
         // Process each image to get the Cloudinary URL or fallback
-        const processedImages = images.map((img) => ({
-          ...img,
-          src: getCloudinaryUrl(img.localPath),
-        }))
+        const processedImages = images.map((img) => {
+          const cloudinaryUrl = getCloudinaryUrl(img.localPath)
+          console.log(`Image ${img.localPath} → ${cloudinaryUrl}`)
+          return {
+            ...img,
+            src: cloudinaryUrl,
+          }
+        })
 
         // Create a mapping for easy access
         const urlMap = {}

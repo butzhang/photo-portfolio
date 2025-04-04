@@ -2,9 +2,9 @@ import fs from 'fs'
 import path from 'path'
 import ReactMarkdown from 'react-markdown'
 import sizeOf from 'image-size'
-import { getCloudinaryUrl } from '../../lib/cloudinary'
 
 import { projects } from '../../config'
+import { generateCloudinaryUrl } from '../../lib/cloudinary.server'
 
 export async function generateStaticParams() {
   return projects.map((p) => ({
@@ -12,7 +12,7 @@ export async function generateStaticParams() {
   }))
 }
 
-export default function ProjectPage({
+export default async function ProjectPage({
   params,
 }: {
   params: { project: string }
@@ -84,8 +84,8 @@ export default function ProjectPage({
           // Local path for the image
           const localImagePath = `/photos/${project.project_folder}/${img}`
 
-          // Get the Cloudinary URL
-          const cloudinaryUrl = getCloudinaryUrl(localImagePath)
+          // Generate the Cloudinary URL using the server function
+          const cloudinaryUrl = generateCloudinaryUrl(localImagePath)
 
           return (
             <div key={img} className="relative w-full h-auto">

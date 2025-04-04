@@ -1,80 +1,42 @@
+'use client'
+
 // Cloudinary utilities and URL handling
-import { useState, useEffect } from 'react'
 
 // Configuration for Cloudinary
 export const cloudinaryConfig = {
   cloudName: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || 'dkyvp47ua',
 }
 
-// Pre-load cloudinary mapping if available at build time
-// This will be populated on the server or fetched on the client
+// Client-side mapping state
 let cloudinaryMapping = {}
 
 // Function to load mapping from the API (client-side)
 export async function fetchCloudinaryMapping() {
   try {
+    console.log('Client: Fetching Cloudinary mapping from API...')
     const response = await fetch('/api/cloudinary-mapping')
+
+    console.log('Client: API response status:', response.status)
+
     if (response.ok) {
       const data = await response.json()
+      console.log(
+        'Client: Received mapping with',
+        Object.keys(data).length,
+        'entries',
+      )
       cloudinaryMapping = data
       return data
+    } else {
+      // Handle error responses
+      const errorText = await response.text()
+      console.error('Client: API error response:', response.status, errorText)
+      return {}
     }
   } catch (error) {
-    console.warn('Failed to fetch Cloudinary mapping from API:', error)
+    console.error('Client: Failed to fetch Cloudinary mapping from API:', error)
   }
   return {}
-}
-
-// File system operations can only happen on the server
-if (typeof window === 'undefined') {
-  try {
-    // This will only run on the server
-    // Using dynamic imports to avoid ESLint warnings
-    const fs = await import('fs').then((module) => module.default)
-    const path = await import('path').then((module) => module.default)
-
-    const mappingPath = path.join(process.cwd(), 'cloudinary-mapping.json')
-    if (fs.existsSync(mappingPath)) {
-      const mappingContent = fs.readFileSync(mappingPath, 'utf8')
-      cloudinaryMapping = JSON.parse(mappingContent)
-    }
-  } catch (error) {
-    console.warn('Failed to load Cloudinary mapping file:', error)
-  }
-} else {
-  // On client side, initialize the fetch
-  fetchCloudinaryMapping().catch(console.error)
-}
-
-// React hook to use cloudinary mapping in components
-export function useCloudinaryMapping() {
-  const [mapping, setMapping] = useState(cloudinaryMapping)
-  const [isLoading, setIsLoading] = useState(
-    Object.keys(cloudinaryMapping).length === 0,
-  )
-
-  useEffect(() => {
-    // If we already have mapping data, don't fetch again
-    if (Object.keys(cloudinaryMapping).length > 0) {
-      setMapping(cloudinaryMapping)
-      setIsLoading(false)
-      return
-    }
-
-    // Otherwise fetch from API
-    setIsLoading(true)
-    fetchCloudinaryMapping()
-      .then((data) => {
-        setMapping(data)
-        setIsLoading(false)
-      })
-      .catch((error) => {
-        console.error('Error fetching Cloudinary mapping:', error)
-        setIsLoading(false)
-      })
-  }, [])
-
-  return { mapping, isLoading }
 }
 
 /**
@@ -116,7 +78,16 @@ export function getCloudinaryUrl(localPath) {
 
   // Get the filename and normalize it (replace spaces with underscores)
   const fileName = parts[parts.length - 1]
-  const normalizedFileName = fileName
+
+  // Make sure we keep the original file extension
+  const fileExtMatch = fileName.match(/\.(jpe?g|png|gif|webp|avif)$/i)
+  const fileExt = fileExtMatch ? fileExtMatch[0] : '.jpg'
+
+  // Remove extension for normalization
+  const nameWithoutExt = fileName.replace(/\.(jpe?g|png|gif|webp|avif)$/i, '')
+
+  // Normalize the filename
+  const normalizedName = nameWithoutExt
     .replace(/ /g, '_')
     .replace(/\(/g, '')
     .replace(/\)/g, '')
@@ -126,8 +97,8 @@ export function getCloudinaryUrl(localPath) {
     .replace(/"/g, '')
     .replace(/[^a-zA-Z0-9_-]/g, '_')
 
-  // Generate URL with normalized filename
-  return `https://res.cloudinary.com/${cloudinaryConfig.cloudName}/image/upload/photography-portfolio/${normalizedFileName}`
+  // Generate URL with normalized filename plus original extension
+  return `https://res.cloudinary.com/${cloudinaryConfig.cloudName}/image/upload/photography-portfolio/${normalizedName}${fileExt}`
 }
 
 /**
