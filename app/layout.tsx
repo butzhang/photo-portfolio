@@ -84,7 +84,7 @@ export default function RootLayout({
         >
           <header className="w-full flex justify-center bg-white dark:bg-neutral-950">
             {/* Use a custom max width like 1200px for a bit wider layout than 7xl */}
-            <div className="w-full max-w-[1200px] px-8 py-5 flex items-center justify-between">
+            <div className="w-full max-w-[1200px] px-8 py-4 flex items-center justify-between">
               <a
                 href="/"
                 className="text-xl font-serif tracking-wide hover:opacity-80 transition-opacity lowercase"

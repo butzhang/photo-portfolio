@@ -44,7 +44,7 @@ export default function Page() {
   const images = pickRandomImages(collectImages(albums), 10)
 
   return (
-    <section className="w-full relative pt-6">
+    <section className="w-full relative pt-2">
       {images.length === 0 ? (
         <div
           className="w-full flex justify-center items-center text-gray-500"
