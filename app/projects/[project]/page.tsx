@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
 
 import { loadManifest, getAlbumBySlug } from '../../lib/photosManifest'
@@ -50,13 +51,12 @@ export default async function ProjectPage({
 
           return (
             <div key={image.filename} className="relative w-full h-auto">
-              <img
+              <Image
                 src={image.url}
                 alt={image.filename}
                 width={originalWidth}
                 height={originalHeight}
                 className={`w-full h-auto object-contain ${className}`}
-                loading="lazy"
               />
             </div>
           )

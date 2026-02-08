@@ -42,7 +42,7 @@ export default function useImagePreloader(imageSrcs: string[]) {
       // Start loading
       img.src = src
     })
-  }, [imageSrcs])
+  }, [imageSrcs, imagesPreloaded])
 
   return imagesPreloaded
 }
