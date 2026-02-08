@@ -1,82 +1,60 @@
-import path from 'path'
-import sizeOf from 'image-size'
 import CarouselClient from './components/CarouselClient'
+import { getAllAlbums, loadManifest } from './lib/photosManifest'
+
+export const dynamic = 'force-dynamic'
+
+type CarouselImage = {
+  src: string
+  width: number
+  height: number
+  title: string
+  link: string
+}
+
+function collectImages(
+  albums: ReturnType<typeof getAllAlbums>,
+): CarouselImage[] {
+  const items: CarouselImage[] = []
+  for (const album of albums) {
+    for (const image of album.images) {
+      items.push({
+        src: image.url,
+        width: image.width,
+        height: image.height,
+        title: album.title,
+        link: `/projects/${album.slug}`,
+      })
+    }
+  }
+  return items
+}
+
+function pickRandomImages(images: CarouselImage[], count: number) {
+  const shuffled = [...images]
+  for (let i = shuffled.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
+  return shuffled.slice(0, Math.min(count, shuffled.length))
+}
 
 export default function Page() {
-  const images = [
-    {
-      path: '/photos/edge_of_city/R00027822025.jpg',
-      title: '',
-    },
-    {
-      path: '/photos/sf_trail/R0001368_small.jpg',
-      title: '',
-    },
-    {
-      path: '/photos/sf_trail/R0001862_small-2.jpg',
-      title: '',
-    },
-    {
-      path: '/photos/street_select_2025/L1009491_og_2025.jpg',
-      title: '',
-    },
-    {
-      path: '/photos/divided_by/L1000529_small-small_version-2.jpg',
-      title: '',
-    },
-    { path: '/photos/divided_by/light.jpg', title: null },
-    { path: '/photos/divided_by/car.jpg', title: null },
-    {
-      path: '/photos/reflections_on_reality/L1011420 1_sm_web_use.jpg',
-      title: null,
-    },
-    {
-      path: '/photos/reflections_on_reality/_1001206_sm_web_use.jpg',
-      title: null,
-    },
-    {
-      path: '/photos/reflections_on_reality/L1010485_sm_web_use.jpg',
-      title: null,
-    },
-    { path: '/photos/street_select/L1010783_sm_web_use.jpg', title: null },
-    { path: '/photos/hometown_2015/leica295dr_sm_web_use 1.jpg', title: null },
-    { path: '/photos/donghu/000385_sm_web_use.jpg', title: null },
-    { path: '/photos/donghu/leica568wuhan_sm_web_use.jpg', title: null },
-    { path: '/photos/Graduation/rolleflex466_sm_web_use.jpg', title: null },
-  ]
-
-  const imageDimensions = images.map((img) => {
-    const filePath = path.join(
-      process.cwd(),
-      'public',
-      img.path.replace(/^\//, ''),
-    )
-
-    const { width, height } = sizeOf(filePath)
-    if (!width || !height) {
-      throw new Error(`Could not determine dimensions for image: ${img.path}`)
-    }
-
-    // Extract project_folder from the path: /photos/{project_folder}/{image_name}
-    // Splitting by '/' yields ['', 'photos', '{project_folder}', '{image_name}']
-    const parts = img.path.split('/')
-    const project_folder = parts[2]
-
-    // Construct link to the project's page
-    const link = `/projects/${project_folder}`
-
-    return {
-      src: img.path,
-      width,
-      height,
-      title: img.title,
-      link,
-    }
-  })
+  const manifest = loadManifest()
+  const albums = getAllAlbums(manifest)
+  const images = pickRandomImages(collectImages(albums), 10)
 
   return (
-    <section className="w-full relative">
-      <CarouselClient images={imageDimensions} />
+    <section className="w-full relative pt-1">
+      {images.length === 0 ? (
+        <div
+          className="w-full flex justify-center items-center text-gray-500"
+          style={{ minHeight: '60vh' }}
+        >
+          No images available.
+        </div>
+      ) : (
+        <CarouselClient images={images} />
+      )}
     </section>
   )
 }

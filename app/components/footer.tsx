@@ -7,12 +7,13 @@ import { metaData, socialLinks } from 'app/config'
 
 const YEAR = new Date().getFullYear()
 
+// Updated type for icon to use more specific React.ComponentType
 function SocialLink({
   href,
   icon: Icon,
 }: {
   href: string
-  icon: React.ElementType
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>
 }) {
   return (
     <a

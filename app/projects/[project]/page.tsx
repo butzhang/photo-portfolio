@@ -1,77 +1,40 @@
-import fs from 'fs'
-import path from 'path'
-import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
-import sizeOf from 'image-size'
 
-import { projects } from '../../config'
+import { loadManifest, getAlbumBySlug } from '../../lib/photosManifest'
 
 export async function generateStaticParams() {
-  return projects.map((p) => ({
-    project: p.project_folder,
-  }))
+  const manifest = loadManifest()
+  return manifest.albums.map((album) => ({ project: album.slug }))
 }
 
-export default function ProjectPage({
+export default async function ProjectPage({
   params,
 }: {
   params: { project: string }
 }) {
-  const projectId = params.project
-  const project = projects.find((p) => p.project_folder === projectId)
+  const manifest = loadManifest()
+  const album = getAlbumBySlug(manifest, params.project)
 
-  if (!project) {
+  if (!album) {
     return <div>Project not found</div>
-  }
-
-  const projectPath = path.join(
-    process.cwd(),
-    'public',
-    'photos',
-    project.project_folder,
-  )
-
-  let images: string[] = []
-  try {
-    images = fs
-      .readdirSync(projectPath)
-      .filter((file) => /\.(jpe?g|png|gif|webp|avif)$/i.test(file))
-
-    if (project.excludes && project.excludes.length > 0) {
-      images = images.filter((img) => !project.excludes!.includes(img))
-    }
-
-    if (project.imageOrder && project.imageOrder.length > 0) {
-      const ordered = project.imageOrder.filter((img) => images.includes(img))
-      const remaining = images
-        .filter((img) => !project.imageOrder!.includes(img))
-        .sort()
-      images = [...ordered, ...remaining]
-    } else {
-      images.sort()
-    }
-  } catch (error) {
-    console.error(error)
   }
 
   return (
     <main className="w-full flex flex-col items-center justify-start px-8 mt-6">
       <h1 className="text-xl md:text-2xl font-serif tracking-wide mb-2 text-center">
-        {project.title.toWellFormed()}
+        {album.title.toWellFormed()}
       </h1>
-      {project.subtitle && (
+      {album.subtitle && (
         <div className="text-sm font-light mb-10 max-w-md text-center leading-relaxed">
-          <ReactMarkdown>{project.subtitle}</ReactMarkdown>
+          <ReactMarkdown>{album.subtitle}</ReactMarkdown>
         </div>
       )}
 
       {/* Use same 1200px max width for consistency */}
       <div className="w-full max-w-[1200px] flex flex-col gap-8">
-        {images.map((img) => {
-          const imagePath = path.join(projectPath, img)
-          const dimensions = sizeOf(imagePath)
-          const originalWidth = dimensions.width
-          const originalHeight = dimensions.height
+        {album.images.map((image) => {
+          const originalWidth = image.width
+          const originalHeight = image.height
 
           // If dimensions cannot be determined, skip rendering this image
           if (!originalWidth || !originalHeight) {
@@ -82,14 +45,14 @@ export default function ProjectPage({
           const className = isPortrait ? 'max-w-[700px] mx-auto' : ''
 
           return (
-            <div key={img} className="relative w-full h-auto">
-              <Image
-                src={`/photos/${project.project_folder}/${img}`}
-                alt={img}
+            <div key={image.filename} className="relative w-full h-auto">
+              <img
+                src={image.url}
+                alt={image.filename}
                 width={originalWidth}
                 height={originalHeight}
                 className={`w-full h-auto object-contain ${className}`}
-                priority={true}
+                loading="lazy"
               />
             </div>
           )

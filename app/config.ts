@@ -27,21 +27,28 @@ export const socialLinks: SocialLinks = {
 // config/projects.ts
 export const projects = [
   {
-    title: 'On the Edge of City 2025 (on going)',
+    title: 'A Day in a Child Life 2025',
+    project_folder: 'a_day_in_a_child_life_2025',
+    subtitle: '',
+    imageOrder: [],
+    excludes: [],
+  },
+  {
+    title: 'On the Edge of City 2025',
     project_folder: 'edge_of_city',
     subtitle: '',
     imageOrder: [],
     excludes: [], // Example exclusion
   },
   {
-    title: 'San Francisco Trail Story 2025 (on going)',
+    title: 'San Francisco Trail Story 2025',
     project_folder: 'sf_trail',
     subtitle: 'I want to get closer to, people',
     imageOrder: [],
     excludes: [], // Example exclusion
   },
   {
-    title: 'Street Select 2025 (on going)',
+    title: 'Street Select 2025',
     project_folder: 'street_select_2025',
     subtitle: ' ',
     imageOrder: [],
