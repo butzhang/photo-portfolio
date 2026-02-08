@@ -2,11 +2,18 @@
 
 import { useState, useEffect } from 'react'
 
+type TestResult = {
+  name: string
+  url: string
+  success: boolean
+  error?: string
+}
+
 // Test component to diagnose Cloudinary URL formats
 export default function DiagnosticsPage() {
   const [cloudName, setCloudName] = useState('dkyvp47ua')
   const [imageId, setImageId] = useState('L1000529_small-small_version-2')
-  const [testResults, setTestResults] = useState([])
+  const [testResults, setTestResults] = useState<TestResult[]>([])
   const [isLoading, setIsLoading] = useState(false)
 
   // Generate different URL patterns to test
@@ -64,8 +71,8 @@ export default function DiagnosticsPage() {
   }
 
   // Check if an image URL loads successfully
-  const checkImageUrl = (url) => {
-    return new Promise((resolve) => {
+  const checkImageUrl = (url: string) => {
+    return new Promise<boolean>((resolve) => {
       const img = new Image()
       img.onload = () => resolve(true)
       img.onerror = () => resolve(false)
