@@ -37,22 +37,22 @@ export default function CarouselClient({
   const { src, width, height, title, link } = images[currentIndex]
   return (
     <div className="w-full flex flex-col items-center">
-      <div className="relative w-full max-w-[1100px] flex items-center justify-center mt-12 h-[48vh] sm:h-[52vh] lg:h-[56vh] bg-neutral-50 dark:bg-neutral-900 border border-neutral-200/70 dark:border-neutral-800">
+      <div className="relative w-full max-w-[1100px] flex items-center justify-center mt-12">
         <Link href={link}>
           <img
             src={src}
             alt={title || `Portfolio image ${currentIndex + 1}`}
             width={width}
             height={height}
-            className="max-h-full max-w-full object-contain transition-opacity duration-500 cursor-pointer"
+            className="max-h-[60vh] max-w-full object-contain transition-opacity duration-500 cursor-pointer"
           />
         </Link>
       </div>
 
       {/* Dots navigation */}
       {images.length > 1 && (
-        <div className="mt-6 flex justify-center">
-          <div className="flex items-center gap-2 rounded-full border border-neutral-200/70 bg-white px-4 py-2 shadow-sm dark:border-neutral-800 dark:bg-neutral-950">
+        <div className="mt-4 flex justify-center">
+          <div className="flex items-center gap-2 rounded-full px-2 py-1">
             {images.map((_, i) => (
               <button
                 key={i}
@@ -60,7 +60,7 @@ export default function CarouselClient({
                 className={`h-2.5 w-2.5 rounded-full transition-all ${
                   i === currentIndex
                     ? 'bg-neutral-900 dark:bg-neutral-100'
-                    : 'bg-neutral-300 dark:bg-neutral-700'
+                    : 'bg-neutral-300 dark:bg-neutral-600'
                 }`}
                 aria-label={`Go to image ${i + 1}`}
               ></button>
