@@ -37,14 +37,14 @@ export default function CarouselClient({
   const { src, width, height, title, link } = images[currentIndex]
   return (
     <div className="w-full flex flex-col items-center">
-      <div className="relative w-full max-w-[1300px] flex items-center justify-center mt-6">
+      <div className="relative w-full max-w-[1300px] flex items-center justify-center mt-5">
         <Link href={link}>
           <img
             src={src}
             alt={title || `Portfolio image ${currentIndex + 1}`}
             width={width}
             height={height}
-            className="max-h-[68vh] max-w-full object-contain transition-opacity duration-500 cursor-pointer"
+            className="max-h-[72vh] max-w-full object-contain transition-opacity duration-500 cursor-pointer"
           />
         </Link>
       </div>
