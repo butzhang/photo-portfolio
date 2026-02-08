@@ -37,7 +37,7 @@ export default function CarouselClient({
   const { src, width, height, title, link } = images[currentIndex]
   return (
     <div className="w-full flex flex-col items-center">
-      <div className="relative w-full max-w-7xl flex items-center justify-center mt-8 h-[70vh] bg-neutral-50 dark:bg-neutral-900 border border-neutral-200/70 dark:border-neutral-800">
+      <div className="relative w-full max-w-7xl flex items-center justify-center mt-8 h-[56vh] sm:h-[60vh] lg:h-[64vh] bg-neutral-50 dark:bg-neutral-900 border border-neutral-200/70 dark:border-neutral-800">
         <Link href={link}>
           <img
             src={src}
