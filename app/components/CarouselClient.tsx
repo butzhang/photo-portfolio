@@ -37,7 +37,7 @@ export default function CarouselClient({
   const { src, width, height, title, link } = images[currentIndex]
   return (
     <div className="w-full flex flex-col items-center">
-      <div className="relative w-full max-w-7xl flex items-center justify-center mt-8 h-[70vh] bg-neutral-50 dark:bg-neutral-900">
+      <div className="relative w-full max-w-7xl flex items-center justify-center mt-8 h-[70vh] bg-neutral-50 dark:bg-neutral-900 border border-neutral-200/70 dark:border-neutral-800">
         <Link href={link}>
           <img
             src={src}
@@ -51,19 +51,21 @@ export default function CarouselClient({
 
       {/* Dots navigation */}
       {images.length > 1 && (
-        <div className="flex space-x-2 mt-6">
-          {images.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setCurrentIndex(i)}
-              className={`w-2 h-2 rounded-full cursor-pointer ${
-                i === currentIndex
-                  ? 'bg-black dark:bg-white'
-                  : 'bg-gray-300 dark:bg-gray-600'
-              }`}
-              aria-label={`Go to image ${i + 1}`}
-            ></button>
-          ))}
+        <div className="mt-5 flex justify-center">
+          <div className="flex items-center gap-2 rounded-full border border-neutral-200/70 dark:border-neutral-800 bg-white/80 dark:bg-neutral-900/80 px-3 py-2">
+            {images.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentIndex(i)}
+                className={`h-2.5 w-2.5 rounded-full transition-colors ${
+                  i === currentIndex
+                    ? 'bg-neutral-900 dark:bg-neutral-100'
+                    : 'bg-neutral-300 dark:bg-neutral-600'
+                }`}
+                aria-label={`Go to image ${i + 1}`}
+              ></button>
+            ))}
+          </div>
         </div>
       )}
     </div>
