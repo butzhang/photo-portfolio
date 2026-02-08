@@ -82,7 +82,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <header className="w-full flex justify-center">
+          <header className="w-full flex justify-center sticky top-0 z-20 bg-white/80 dark:bg-neutral-950/80 backdrop-blur border-b border-neutral-200/70 dark:border-neutral-800">
             {/* Use a custom max width like 1200px for a bit wider layout than 7xl */}
             <div className="w-full max-w-[1200px] px-8 py-5 flex items-center justify-between">
               <a
