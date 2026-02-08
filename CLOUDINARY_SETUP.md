@@ -50,20 +50,22 @@ This suggests your Cloudinary URLs should be structured like:
 https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/street_select_2025/L1009491_og_2025.jpg
 ```
 
-## Step 6: Generate the URL Mapping
+## Step 6: Upload + Generate Manifest (Recommended)
 
-Once you've found the correct URL format:
+Once you've found the correct URL format, run the combined upload + manifest script:
 
-1. Update the `generate-cloudinary-map.js` script to use this format
-2. Run `npm run generate-map` to create a mapping file
+```
+npm run upload-and-manifest
+```
+
+This will:
+
+- Upload images to Cloudinary using folder-based public IDs
+- Generate `content/photos.manifest.json` with URLs and dimensions
 
 ## Step 7: Update Your Code
 
-Use our auto-update script to replace local image paths with Cloudinary URLs:
-
-```
-npm run switch-to-cloudinary
-```
+The app reads the manifest directly, so no manual search-and-replace is needed.
 
 ## Cloudinary URL Formats Reference
 

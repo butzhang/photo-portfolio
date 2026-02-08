@@ -9,6 +9,7 @@
     "format": "prettier --write .",
     "lint": "eslint .",
     "upload-images": "node scripts/upload-to-cloudinary.js",
+    "upload-and-manifest": "node scripts/upload-and-manifest.js",
     "generate-map": "node scripts/generate-cloudinary-map.js",
     "switch-to-cloudinary": "node scripts/switch-to-cloudinary.js"
   },
