@@ -101,7 +101,9 @@ export default function DiagnosticPage() {
           </li>
           <li>Try with and without folder paths</li>
           <li>Confirm your images are publicly accessible</li>
-          <li>Try a sample image (like 'sample') to verify basic access</li>
+          <li>
+            Try a sample image (like &apos;sample&apos;) to verify basic access
+          </li>
         </ul>
       </div>
     </div>

@@ -146,7 +146,7 @@ export default function DiagnosticsPage() {
 
           <ol className="list-decimal ml-6 space-y-2">
             <li>
-              Check if you've run{' '}
+              Check if you&apos;ve run{' '}
               <code className="bg-gray-100 px-1">npm run upload-images</code> to
               upload your images to Cloudinary
             </li>

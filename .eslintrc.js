@@ -1,4 +1,6 @@
 module.exports = {
+  root: true,
+  ignorePatterns: ['.next/'],
   extends: ['next', 'next/core-web-vitals'],
   overrides: [
     {
