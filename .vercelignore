@@ -1,0 +1,7 @@
+.git/
+.vercel/
+.worktrees/
+.crush/
+.next/
+node_modules/
+*.log
