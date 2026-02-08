@@ -53,11 +53,7 @@ export default function Page() {
           No images available.
         </div>
       ) : (
-        <div className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen">
-          <div className="mx-auto w-full max-w-[1600px] px-6 sm:px-10">
-            <CarouselClient images={images} />
-          </div>
-        </div>
+        <CarouselClient images={images} />
       )}
     </section>
   )
