@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useState } from 'react'
 
 export default function TestImage() {
@@ -18,12 +19,14 @@ export default function TestImage() {
 
       <div className="border p-4 rounded mb-4">
         <h2 className="font-bold mb-2">Regular IMG tag</h2>
-        <img
+        <Image
           src={imagePath}
           alt="Test image"
-          className="max-w-full"
+          width={1200}
+          height={800}
+          className="max-w-full h-auto"
           onError={() => {
-            console.error('Image load error with IMG tag')
+            console.error('Image load error with Image component')
             setImageError(true)
           }}
         />

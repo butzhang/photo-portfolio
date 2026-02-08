@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 type TestResult = {
   name: string
@@ -17,7 +17,7 @@ export default function DiagnosticsPage() {
   const [isLoading, setIsLoading] = useState(false)
 
   // Generate different URL patterns to test
-  const generateTestURLs = () => {
+  const generateTestURLs = useCallback(() => {
     return [
       {
         name: 'Basic',
@@ -40,10 +40,20 @@ export default function DiagnosticsPage() {
         url: `https://res.cloudinary.com/${cloudName}/image/upload/photography-portfolio/light.jpg`,
       },
     ]
-  }
+  }, [cloudName, imageId])
+
+  // Check if an image URL loads successfully
+  const checkImageUrl = useCallback((url: string) => {
+    return new Promise<boolean>((resolve) => {
+      const img = new Image()
+      img.onload = () => resolve(true)
+      img.onerror = () => resolve(false)
+      img.src = url
+    })
+  }, [])
 
   // Test all URL variations
-  const testUrls = async () => {
+  const testUrls = useCallback(async () => {
     setIsLoading(true)
     const urls = generateTestURLs()
 
@@ -68,22 +78,12 @@ export default function DiagnosticsPage() {
 
     setTestResults(results)
     setIsLoading(false)
-  }
-
-  // Check if an image URL loads successfully
-  const checkImageUrl = (url: string) => {
-    return new Promise<boolean>((resolve) => {
-      const img = new Image()
-      img.onload = () => resolve(true)
-      img.onerror = () => resolve(false)
-      img.src = url
-    })
-  }
+  }, [checkImageUrl, generateTestURLs])
 
   useEffect(() => {
     // Auto-run tests when component loads
     testUrls()
-  }, [])
+  }, [testUrls])
 
   return (
     <div className="p-8 max-w-5xl mx-auto">

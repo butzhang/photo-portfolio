@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 
@@ -36,16 +37,17 @@ export default function SimpleCarousel({
     return () => clearInterval(timer)
   }, [images.length, autoScroll, interval])
 
-  const { src, title, link } = images[currentIndex]
+  const { src, width, height, title, link } = images[currentIndex]
 
   return (
     <div className="w-full flex flex-col items-center">
       <div className="relative w-full max-w-7xl flex items-center justify-center mt-8">
         <Link href={link}>
-          {/* Use regular HTML img tag instead of Next.js Image */}
-          <img
+          <Image
             src={src}
             alt={title || `Portfolio image ${currentIndex + 1}`}
+            width={width}
+            height={height}
             className="max-w-full h-auto cursor-pointer"
           />
         </Link>

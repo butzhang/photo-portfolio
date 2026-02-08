@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 
@@ -39,7 +40,7 @@ export default function CarouselClient({
     <div className="w-full flex flex-col items-center">
       <div className="relative w-full max-w-[1300px] flex items-center justify-center mt-5">
         <Link href={link}>
-          <img
+          <Image
             src={src}
             alt={title || `Portfolio image ${currentIndex + 1}`}
             width={width}
