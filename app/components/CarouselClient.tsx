@@ -46,8 +46,6 @@ export default function CarouselClient({
             width={width}
             height={height}
             className="max-w-full h-auto transition-opacity duration-500 cursor-pointer"
-            priority="true"
-            quality={85}
           />
         </Link>
       </div>
