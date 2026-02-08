@@ -6,9 +6,6 @@ const nextConfig = {
     unoptimized: true, // Use this to bypass Next.js image optimization
     domains: ['res.cloudinary.com'],
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   async rewrites() {
     return [
       {
