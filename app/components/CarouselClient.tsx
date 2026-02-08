@@ -35,6 +35,10 @@ export default function CarouselClient({
   }, [images.length, interval])
 
   const { src, width, height, title, link } = images[currentIndex]
+  const isPortrait = height > width * 1.2
+  const imageClassName = isPortrait
+    ? 'max-h-[60vh] w-auto object-contain'
+    : 'max-w-full h-auto object-contain'
 
   return (
     <div className="w-full flex flex-col items-center">
@@ -45,7 +49,7 @@ export default function CarouselClient({
             alt={title || `Portfolio image ${currentIndex + 1}`}
             width={width}
             height={height}
-            className="max-w-full h-auto transition-opacity duration-500 cursor-pointer"
+            className={`${imageClassName} transition-opacity duration-500 cursor-pointer`}
           />
         </Link>
       </div>
