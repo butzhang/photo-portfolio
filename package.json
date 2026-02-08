@@ -8,6 +8,7 @@
     "prepare": "husky install",
     "format": "prettier --write .",
     "lint": "eslint .",
+    "test": "node scripts/lib/manifest-utils.test.js && node scripts/upload-and-manifest.test.js && node scripts/photos-manifest.test.js && node scripts/project-page.static.test.js && node scripts/homepage.static.test.js && node scripts/cloudinary-deprecations.test.js",
     "upload-images": "node scripts/upload-to-cloudinary.js",
     "upload-and-manifest": "node scripts/upload-and-manifest.js",
     "generate-map": "node scripts/generate-cloudinary-map.js",
