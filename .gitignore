@@ -41,3 +41,5 @@ next-env.d.ts
 
 # Photography images (to be served from Cloudinary)
 /public/photos/
+
+.worktrees/
