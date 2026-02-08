@@ -37,7 +37,7 @@ export default function CarouselClient({
   const { src, width, height, title, link } = images[currentIndex]
   return (
     <div className="w-full flex flex-col items-center">
-      <div className="relative w-full max-w-[1200px] flex items-center justify-center mt-10 h-[52vh] sm:h-[56vh] lg:h-[60vh] bg-neutral-50 dark:bg-neutral-900 border border-neutral-200/70 dark:border-neutral-800">
+      <div className="relative w-full max-w-[1100px] flex items-center justify-center mt-12 h-[48vh] sm:h-[52vh] lg:h-[56vh] bg-neutral-50 dark:bg-neutral-900 border border-neutral-200/70 dark:border-neutral-800">
         <Link href={link}>
           <img
             src={src}
@@ -51,14 +51,16 @@ export default function CarouselClient({
 
       {/* Dots navigation */}
       {images.length > 1 && (
-        <div className="mt-4 flex justify-center">
-          <div className="flex items-center gap-2 rounded-full bg-neutral-900/75 px-3 py-2 shadow-sm ring-1 ring-neutral-900/20 backdrop-blur dark:bg-neutral-100/10 dark:ring-white/10">
+        <div className="mt-6 flex justify-center">
+          <div className="flex items-center gap-2 rounded-full border border-neutral-200/70 bg-white px-4 py-2 shadow-sm dark:border-neutral-800 dark:bg-neutral-950">
             {images.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setCurrentIndex(i)}
                 className={`h-2.5 w-2.5 rounded-full transition-all ${
-                  i === currentIndex ? 'bg-white' : 'bg-white/40'
+                  i === currentIndex
+                    ? 'bg-neutral-900 dark:bg-neutral-100'
+                    : 'bg-neutral-300 dark:bg-neutral-700'
                 }`}
                 aria-label={`Go to image ${i + 1}`}
               ></button>
