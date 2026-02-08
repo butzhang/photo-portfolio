@@ -33,6 +33,10 @@ export default async function ProjectPage({
       {/* Use same 1200px max width for consistency */}
       <div className="w-full max-w-[1200px] flex flex-col gap-8">
         {album.images.map((image) => {
+          if (!image) {
+            return null
+          }
+
           const originalWidth = image.width
           const originalHeight = image.height
 

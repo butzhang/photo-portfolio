@@ -17,6 +17,10 @@ function collectImages(
   const items: CarouselImage[] = []
   for (const album of albums) {
     for (const image of album.images) {
+      if (!image) {
+        continue
+      }
+
       items.push({
         src: image.url,
         width: image.width,
