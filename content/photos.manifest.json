@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-08T03:11:20.477Z",
+  "generatedAt": "2026-02-08T04:00:51.403Z",
   "cloudName": "dkyvp47ua",
   "rootFolder": "photography-portfolio",
   "albums": [
@@ -49,6 +49,97 @@
           "width": 2033,
           "height": 2048,
           "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/Graduation/rolleflex478_sm_web_use_1.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "a_day_in_a_child_life_2025",
+      "title": "A Day In A Child Life 2025",
+      "subtitle": "",
+      "images": [
+        {
+          "filename": "R00042082025.jpg",
+          "width": 4000,
+          "height": 2666,
+          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/a_day_in_a_child_life_2025/R00042082025.jpg"
+        },
+        {
+          "filename": "R00042152025.jpg",
+          "width": 4000,
+          "height": 2667,
+          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/a_day_in_a_child_life_2025/R00042152025.jpg"
+        },
+        {
+          "filename": "R00042542025.jpg",
+          "width": 4000,
+          "height": 2667,
+          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/a_day_in_a_child_life_2025/R00042542025.jpg"
+        },
+        {
+          "filename": "R00042942025.jpg",
+          "width": 4000,
+          "height": 2666,
+          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/a_day_in_a_child_life_2025/R00042942025.jpg"
+        },
+        {
+          "filename": "R00043142025.jpg",
+          "width": 4000,
+          "height": 2667,
+          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/a_day_in_a_child_life_2025/R00043142025.jpg"
+        },
+        {
+          "filename": "R00043542025.jpg",
+          "width": 4000,
+          "height": 2667,
+          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/a_day_in_a_child_life_2025/R00043542025.jpg"
+        },
+        {
+          "filename": "R00043632025.jpg",
+          "width": 4000,
+          "height": 2667,
+          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/a_day_in_a_child_life_2025/R00043632025.jpg"
+        },
+        {
+          "filename": "R00043672025.jpg",
+          "width": 4000,
+          "height": 2667,
+          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/a_day_in_a_child_life_2025/R00043672025.jpg"
+        },
+        {
+          "filename": "R00043812025.jpg",
+          "width": 4000,
+          "height": 2667,
+          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/a_day_in_a_child_life_2025/R00043812025.jpg"
+        },
+        {
+          "filename": "R00043912025.jpg",
+          "width": 4000,
+          "height": 2667,
+          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/a_day_in_a_child_life_2025/R00043912025.jpg"
+        },
+        {
+          "filename": "R00044302025.jpg",
+          "width": 3420,
+          "height": 2280,
+          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/a_day_in_a_child_life_2025/R00044302025.jpg"
+        },
+        {
+          "filename": "R00044412025.jpg",
+          "width": 4000,
+          "height": 2667,
+          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/a_day_in_a_child_life_2025/R00044412025.jpg"
+        },
+        {
+          "filename": "R00044772025.jpg",
+          "width": 4000,
+          "height": 2667,
+          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/a_day_in_a_child_life_2025/R00044772025.jpg"
+        },
+        {
+          "filename": "R00045382025.jpg",
+          "width": 4000,
+          "height": 2667,
+          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/a_day_in_a_child_life_2025/R00045382025.jpg"
         }
       ]
     },

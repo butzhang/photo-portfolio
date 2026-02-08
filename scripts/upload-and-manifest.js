@@ -1,8 +1,10 @@
 const fs = require('fs')
 const path = require('path')
+const os = require('os')
 const dotenv = require('dotenv')
 const cloudinary = require('cloudinary').v2
 const sizeOf = require('image-size')
+const sharp = require('sharp')
 
 const {
   buildPublicId,
@@ -17,6 +19,9 @@ const CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
 const CLOUDINARY_FOLDER = 'photography-portfolio'
 const PHOTOS_DIR = path.join(process.cwd(), 'public', 'photos')
 const OUTPUT_PATH = path.join(process.cwd(), 'content', 'photos.manifest.json')
+const MAX_UPLOAD_BYTES = 10 * 1024 * 1024
+const MAX_DIMENSION = 4000
+const JPEG_QUALITY = 82
 
 function getImageFiles(dirPath) {
   return fs
@@ -52,6 +57,48 @@ async function uploadImage({ filePath, albumSlug, filename }) {
     return { uploaded: true }
   } catch (error) {
     return { uploaded: false, error }
+  }
+}
+
+async function prepareUpload(filePath, filename) {
+  const stats = fs.statSync(filePath)
+  if (stats.size <= MAX_UPLOAD_BYTES) {
+    return { uploadPath: filePath, cleanup: null }
+  }
+
+  const ext = path.extname(filename).toLowerCase()
+  const tempPath = path.join(
+    os.tmpdir(),
+    `photo-upload-${Date.now()}-${Math.random().toString(16).slice(2)}${ext}`,
+  )
+
+  let pipeline = sharp(filePath).resize({
+    width: MAX_DIMENSION,
+    height: MAX_DIMENSION,
+    fit: 'inside',
+    withoutEnlargement: true,
+  })
+
+  if (ext === '.png') {
+    pipeline = pipeline.png({ compressionLevel: 9, adaptiveFiltering: true })
+  } else if (ext === '.webp') {
+    pipeline = pipeline.webp({ quality: JPEG_QUALITY })
+  } else if (ext === '.avif') {
+    pipeline = pipeline.avif({ quality: 50 })
+  } else {
+    pipeline = pipeline.jpeg({ quality: JPEG_QUALITY, mozjpeg: true })
+  }
+
+  await pipeline.toFile(tempPath)
+  return {
+    uploadPath: tempPath,
+    cleanup: () => {
+      try {
+        fs.unlinkSync(tempPath)
+      } catch (error) {
+        console.warn(`Failed to remove temp file ${tempPath}:`, error)
+      }
+    },
   }
 }
 
@@ -96,12 +143,25 @@ async function main() {
     for (const filename of files) {
       totalImages += 1
       const filePath = path.join(albumPath, filename)
-      const dimensions = sizeOf(filePath)
+      let uploadPath = filePath
+      let cleanup = null
+      const stats = fs.statSync(filePath)
+
+      if (stats.size > MAX_UPLOAD_BYTES) {
+        console.log(
+          `Resizing ${filename} (${stats.size} bytes) to fit upload limits...`,
+        )
+        const prepared = await prepareUpload(filePath, filename)
+        uploadPath = prepared.uploadPath
+        cleanup = prepared.cleanup
+      }
+
+      const dimensions = sizeOf(uploadPath)
       const width = dimensions.width || 0
       const height = dimensions.height || 0
 
       const uploadResult = await uploadImage({
-        filePath,
+        filePath: uploadPath,
         albumSlug,
         filename,
       })
@@ -114,6 +174,10 @@ async function main() {
           uploadResult.error.error?.message ||
           String(uploadResult.error)
         console.warn(`Upload skipped for ${filePath}: ${message}`)
+      }
+
+      if (cleanup) {
+        cleanup()
       }
 
       images.push({
