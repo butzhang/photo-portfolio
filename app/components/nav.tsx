@@ -7,6 +7,10 @@ const navItems = {
 }
 
 export function Navbar() {
+  const orderedProjects = [...projects].sort((a, b) =>
+    b.project_folder.localeCompare(a.project_folder),
+  )
+
   return (
     <nav className="flex justify-between items-center w-full relative font-serif">
       <Link
@@ -29,7 +33,7 @@ export function Navbar() {
                   className="absolute left-0 top-full mt-0 py-2 w-48 bg-white dark:bg-neutral-900 hidden group-hover:block z-50 shadow"
                   // Removing vertical gap (mt-2) and putting mt-0 so there's no gap between the trigger and dropdown.
                 >
-                  {projects.map((project) => (
+                  {orderedProjects.map((project) => (
                     <Link
                       key={project.project_folder}
                       href={`/projects/${project.project_folder}`}

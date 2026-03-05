@@ -27,6 +27,13 @@ export const socialLinks: SocialLinks = {
 // config/projects.ts
 export const projects = [
   {
+    title: '2025-2026 Archive',
+    project_folder: '2025-2026_archive',
+    subtitle: '',
+    imageOrder: [],
+    excludes: [],
+  },
+  {
     title: 'A Day in a Child Life 2025',
     project_folder: 'a_day_in_a_child_life_2025',
     subtitle: '',

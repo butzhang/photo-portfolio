@@ -1,23 +1,25 @@
-import React from "react";
-import type { Metadata } from "next";
-import { projects } from "./project-data";
+import React from 'react'
+import type { Metadata } from 'next'
+import { projects } from '../config'
 
 export const metadata: Metadata = {
-  title: "Projects",
-  description: "My Projects",
-};
+  title: 'Projects',
+  description: 'My Projects',
+}
 
 export default function Projects() {
+  const orderedProjects = [...projects].sort((a, b) =>
+    b.project_folder.localeCompare(a.project_folder),
+  )
+
   return (
     <section>
       <h1 className="mb-8 text-2xl font-medium tracking-tight">Projects</h1>
       <div className="space-y-6">
-        {projects.map((project, index) => (
+        {orderedProjects.map((project) => (
           <a
-            key={index}
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
+            key={project.project_folder}
+            href={`/projects/${project.project_folder}`}
             className="block group hover:opacity-80 transition-opacity duration-200"
           >
             <div className="flex flex-col">
@@ -25,17 +27,16 @@ export default function Projects() {
                 <span className="text-black dark:text-white font-medium tracking-tight">
                   {project.title}
                 </span>
-                <span className="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm">
-                  {project.year}
-                </span>
               </div>
-              <p className="prose prose-neutral dark:prose-invert pt-3">
-                {project.description}
-              </p>
+              {project.subtitle ? (
+                <p className="prose prose-neutral dark:prose-invert pt-3 whitespace-pre-line">
+                  {project.subtitle}
+                </p>
+              ) : null}
             </div>
           </a>
         ))}
       </div>
     </section>
-  );
+  )
 }
