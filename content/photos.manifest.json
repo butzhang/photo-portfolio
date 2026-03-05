@@ -1,8 +1,87 @@
 {
-  "generatedAt": "2026-02-08T04:00:51.403Z",
+  "generatedAt": "2026-03-02T04:26:40.995Z",
   "cloudName": "dkyvp47ua",
   "rootFolder": "photography-portfolio",
   "albums": [
+    {
+      "slug": "2025-2026_archive",
+      "title": "2025-2026 Archive",
+      "subtitle": "",
+      "images": [
+        {
+          "filename": "L1001784_small.jpg",
+          "width": 4378,
+          "height": 1616,
+          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/2025-2026_archive/L1001784_small.jpg"
+        },
+        {
+          "filename": "L1001925_small-2.jpg",
+          "width": 3343,
+          "height": 2220,
+          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/2025-2026_archive/L1001925_small-2.jpg"
+        },
+        {
+          "filename": "L1002180-Edit_small.jpg",
+          "width": 3811,
+          "height": 2531,
+          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/2025-2026_archive/L1002180-Edit_small.jpg"
+        },
+        {
+          "filename": "L1002465-Edit_small.jpg",
+          "width": 3787,
+          "height": 1398,
+          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/2025-2026_archive/L1002465-Edit_small.jpg"
+        },
+        {
+          "filename": "P1036724_small.jpg",
+          "width": 2400,
+          "height": 1600,
+          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/2025-2026_archive/P1036724_small.jpg"
+        },
+        {
+          "filename": "P1036919-Edit_og_2025.jpg",
+          "width": 4000,
+          "height": 2666,
+          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/2025-2026_archive/P1036919-Edit_og_2025.jpg"
+        },
+        {
+          "filename": "R0006469_small.jpg",
+          "width": 1293,
+          "height": 862,
+          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/2025-2026_archive/R0006469_small.jpg"
+        },
+        {
+          "filename": "R0006497_small.jpg",
+          "width": 2349,
+          "height": 1566,
+          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/2025-2026_archive/R0006497_small.jpg"
+        },
+        {
+          "filename": "R0006911_og_2025.jpg",
+          "width": 5725,
+          "height": 3817,
+          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/2025-2026_archive/R0006911_og_2025.jpg"
+        },
+        {
+          "filename": "R0007127_small.jpg",
+          "width": 1008,
+          "height": 672,
+          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/2025-2026_archive/R0007127_small.jpg"
+        },
+        {
+          "filename": "R0007369_og_2025.jpg",
+          "width": 1731,
+          "height": 2240,
+          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/2025-2026_archive/R0007369_og_2025.jpg"
+        },
+        {
+          "filename": "R0008097-Edit_og_2026.jpg",
+          "width": 4708,
+          "height": 3139,
+          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/2025-2026_archive/R0008097-Edit_og_2026.jpg"
+        }
+      ]
+    },
     {
       "slug": "Graduation",
       "title": "Graduation",
@@ -49,97 +128,6 @@
           "width": 2033,
           "height": 2048,
           "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/Graduation/rolleflex478_sm_web_use_1.jpg"
-        }
-      ]
-    },
-    {
-      "slug": "a_day_in_a_child_life_2025",
-      "title": "A Day In A Child Life 2025",
-      "subtitle": "",
-      "images": [
-        {
-          "filename": "R00042082025.jpg",
-          "width": 4000,
-          "height": 2666,
-          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/a_day_in_a_child_life_2025/R00042082025.jpg"
-        },
-        {
-          "filename": "R00042152025.jpg",
-          "width": 4000,
-          "height": 2667,
-          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/a_day_in_a_child_life_2025/R00042152025.jpg"
-        },
-        {
-          "filename": "R00042542025.jpg",
-          "width": 4000,
-          "height": 2667,
-          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/a_day_in_a_child_life_2025/R00042542025.jpg"
-        },
-        {
-          "filename": "R00042942025.jpg",
-          "width": 4000,
-          "height": 2666,
-          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/a_day_in_a_child_life_2025/R00042942025.jpg"
-        },
-        {
-          "filename": "R00043142025.jpg",
-          "width": 4000,
-          "height": 2667,
-          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/a_day_in_a_child_life_2025/R00043142025.jpg"
-        },
-        {
-          "filename": "R00043542025.jpg",
-          "width": 4000,
-          "height": 2667,
-          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/a_day_in_a_child_life_2025/R00043542025.jpg"
-        },
-        {
-          "filename": "R00043632025.jpg",
-          "width": 4000,
-          "height": 2667,
-          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/a_day_in_a_child_life_2025/R00043632025.jpg"
-        },
-        {
-          "filename": "R00043672025.jpg",
-          "width": 4000,
-          "height": 2667,
-          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/a_day_in_a_child_life_2025/R00043672025.jpg"
-        },
-        {
-          "filename": "R00043812025.jpg",
-          "width": 4000,
-          "height": 2667,
-          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/a_day_in_a_child_life_2025/R00043812025.jpg"
-        },
-        {
-          "filename": "R00043912025.jpg",
-          "width": 4000,
-          "height": 2667,
-          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/a_day_in_a_child_life_2025/R00043912025.jpg"
-        },
-        {
-          "filename": "R00044302025.jpg",
-          "width": 3420,
-          "height": 2280,
-          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/a_day_in_a_child_life_2025/R00044302025.jpg"
-        },
-        {
-          "filename": "R00044412025.jpg",
-          "width": 4000,
-          "height": 2667,
-          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/a_day_in_a_child_life_2025/R00044412025.jpg"
-        },
-        {
-          "filename": "R00044772025.jpg",
-          "width": 4000,
-          "height": 2667,
-          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/a_day_in_a_child_life_2025/R00044772025.jpg"
-        },
-        {
-          "filename": "R00045382025.jpg",
-          "width": 4000,
-          "height": 2667,
-          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/a_day_in_a_child_life_2025/R00045382025.jpg"
         }
       ]
     },
