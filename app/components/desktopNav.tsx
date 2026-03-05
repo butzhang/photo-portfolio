@@ -3,10 +3,6 @@ import { projects } from '../config'
 import { ThemeSwitch } from './theme-switch'
 
 export default function DesktopNav() {
-  const orderedProjects = [...projects].sort((a, b) =>
-    b.project_folder.localeCompare(a.project_folder),
-  )
-
   return (
     <div className="hidden sm:flex items-center gap-6">
       {/* Example: Desktop shows the "projects" dropdown and other links */}
@@ -15,7 +11,7 @@ export default function DesktopNav() {
           projects
         </span>
         <div className="absolute left-0 top-full mt-0 py-2 w-48 bg-white dark:bg-neutral-900 hidden group-hover:block z-50 shadow">
-          {orderedProjects.map((project) => (
+          {projects.map((project) => (
             <Link
               key={project.project_folder}
               href={`/projects/${project.project_folder}`}

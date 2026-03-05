@@ -7,9 +7,6 @@ import { ThemeSwitch } from './theme-switch'
 
 export default function MobileNav() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const orderedProjects = [...projects].sort((a, b) =>
-    b.project_folder.localeCompare(a.project_folder),
-  )
 
   return (
     <div className="flex sm:hidden items-center">
@@ -35,7 +32,7 @@ export default function MobileNav() {
             <div>
               <span className="block font-bold">projects &raquo;</span>
               <div className="ml-4 space-y-2">
-                {orderedProjects.map((project) => (
+                {projects.map((project) => (
                   <Link
                     key={project.project_folder}
                     href={`/projects/${project.project_folder}`}
