@@ -34,6 +34,13 @@ export const projects = [
     excludes: [],
   },
   {
+    title: 'On My Way To Office 2026',
+    project_folder: 'on_my_way_to_office_2026',
+    subtitle: '',
+    imageOrder: ['R0008097-Edit_og_2026.jpg'],
+    excludes: [],
+  },
+  {
     title: 'A Day in a Child Life 2025',
     project_folder: 'a_day_in_a_child_life_2025',
     subtitle: '',

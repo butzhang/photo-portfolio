@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-06T04:55:50.011Z",
+  "generatedAt": "2026-03-09T04:26:18.932Z",
   "cloudName": "dkyvp47ua",
   "rootFolder": "photography-portfolio",
   "albums": [
@@ -73,12 +73,6 @@
           "width": 1731,
           "height": 2240,
           "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/2025-2026_archive/R0007369_og_2025.jpg"
-        },
-        {
-          "filename": "R0008097-Edit_og_2026.jpg",
-          "width": 4708,
-          "height": 3139,
-          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/2025-2026_archive/R0008097-Edit_og_2026.jpg"
         }
       ]
     },
@@ -779,6 +773,19 @@
           "width": 2877,
           "height": 2877,
           "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/street_select_2025/L1009491_og_2025.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "on_my_way_to_office_2026",
+      "title": "On My Way To Office 2026",
+      "subtitle": "",
+      "images": [
+        {
+          "filename": "R0008097-Edit_og_2026.jpg",
+          "width": 4708,
+          "height": 3139,
+          "url": "https://res.cloudinary.com/dkyvp47ua/image/upload/photography-portfolio/on_my_way_to_office_2026/R0008097-Edit_og_2026.jpg"
         }
       ]
     }
