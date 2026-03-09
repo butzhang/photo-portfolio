@@ -27,17 +27,17 @@ export const socialLinks: SocialLinks = {
 // config/projects.ts
 export const projects = [
   {
+    title: 'On My Way To Office 2026',
+    project_folder: 'on_my_way_to_office_2026',
+    subtitle: '',
+    imageOrder: ['R0008227-Edit_small.jpg'],
+    excludes: ['R0008097-Edit_og_2026.jpg'],
+  },
+  {
     title: '2025-2026 Archive',
     project_folder: '2025-2026_archive',
     subtitle: '',
     imageOrder: [],
-    excludes: [],
-  },
-  {
-    title: 'On My Way To Office 2026',
-    project_folder: 'on_my_way_to_office_2026',
-    subtitle: '',
-    imageOrder: ['R0008097-Edit_og_2026.jpg'],
     excludes: [],
   },
   {
