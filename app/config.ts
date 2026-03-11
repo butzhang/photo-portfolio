@@ -33,7 +33,7 @@ export const socialLinks: SocialLinks = {
 
 export const projects = [
   {
-    title: 'On My Way To Office 2026',
+    title: 'Come Muted 2026',
     project_folder: 'on_my_way_to_office_2026',
     subtitle: '',
     imageOrder: [
