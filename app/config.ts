@@ -35,7 +35,10 @@ export const projects = [
   {
     title: 'Come Muted 2026',
     project_folder: 'on_my_way_to_office_2026',
-    subtitle: '',
+    subtitle: `2025年11月，我加入了旧金山一家 AI 初创公司。  
+每周三天，我都要往返 San Jose 与 San Francisco。  
+
+于是我把路途所见，呈现于此。`,
     imageOrder: [
       'R0008227-Edit_small.jpg',
       'R0008097-Edit_og_2026.jpg',
