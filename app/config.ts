@@ -30,7 +30,17 @@ export const projects = [
     title: 'On My Way To Office 2026',
     project_folder: 'on_my_way_to_office_2026',
     subtitle: '',
-    imageOrder: ['R0008227-Edit_small.jpg', 'R0008097-Edit_og_2026.jpg'],
+    imageOrder: [
+      'R0008227-Edit_small.jpg',
+      'R0008097-Edit_og_2026.jpg',
+      'R0007932_scale_down_65.jpg',
+      'R0007962_scale_down_65.jpg',
+      'R0008139_scale_down_65.jpg',
+      'R0008231_scale_down_65.jpg',
+      'R0008245_scale_down_65.jpg',
+      'R0008305 1_scale_down_65.jpg',
+      'R0008316_scale_down_65.jpg',
+    ],
     excludes: [],
   },
   {
