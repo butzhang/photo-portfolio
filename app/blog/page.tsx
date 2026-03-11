@@ -1,17 +1,17 @@
-import Link from "next/link";
-import { formatDate, getBlogPosts } from "app/lib/posts";
+import Link from 'next/link'
+import { formatDate, getBlogPosts } from 'app/lib/posts'
 
 export const metadata = {
-  title: "Blog",
-  description: "Nextfolio Blog",
-};
+  title: 'Blog',
+  description: 'Writing by Ke Zhang',
+}
 
 export default function BlogPosts() {
-  let allBlogs = getBlogPosts();
+  const allBlogs = getBlogPosts()
 
   return (
     <section>
-      <h1 className="mb-8 text-2xl font-medium tracking-tight">Our Blog</h1>
+      <h1 className="mb-8 text-2xl font-medium tracking-tight">Blog</h1>
       <div>
         {allBlogs
           .sort((a, b) => {
@@ -19,9 +19,9 @@ export default function BlogPosts() {
               new Date(a.metadata.publishedAt) >
               new Date(b.metadata.publishedAt)
             ) {
-              return -1;
+              return -1
             }
-            return 1;
+            return 1
           })
           .map((post) => (
             <Link
@@ -41,5 +41,5 @@ export default function BlogPosts() {
           ))}
       </div>
     </section>
-  );
+  )
 }

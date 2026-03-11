@@ -1,73 +1,54 @@
-import React from "react";
-import type { Metadata } from "next";
-import { ImageGrid } from "app/components/image-grid";
+import type { Metadata } from 'next'
+import Image from 'next/image'
+import Link from 'next/link'
+
+import { getAllAlbums, loadManifest } from 'app/lib/photosManifest'
 
 export const metadata: Metadata = {
-  title: "Photos",
-  description: "My Photos",
-};
+  title: 'Photos',
+  description: 'Photo collections by Ke Zhang',
+}
 
 export default function Photos() {
+  const manifest = loadManifest()
+  const albums = getAllAlbums(manifest)
+
   return (
-    <section>
+    <section className="w-full">
       <h1 className="mb-8 text-2xl font-medium tracking-tight">Photos</h1>
-      <ImageGrid
-        columns={3}
-        images={[
-          {
-            src: "/photos/photo1.jpg",
-            alt: "Roman columns",
-            href: "https://unsplash.com/photos/people-walking-near-building-during-daytime-dFLBDQQeffU?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash",
-          },
-          {
-            src: "/photos/photo2.jpg",
-            alt: "Big Ben",
-            href: "https://unsplash.com/photos/big-ben-london-MdJq0zFUwrw?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash",
-          },
-          {
-            src: "/photos/photo3.jpg",
-            alt: "Sacré-Cœur Basilica",
-            href: "https://unsplash.com/photos/a-view-of-the-inside-of-a-building-through-a-circular-window-Tp-3hrx88J4",
-          },
-          {
-            src: "/photos/photo4.jpg",
-            alt: "Eiffel Tower",
-            href: "https://unsplash.com/photos/the-eiffel-tower-towering-over-the-city-of-paris-OgPuPvPsHLM?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash",
-          },
-          {
-            src: "/photos/photo5.jpg",
-            alt: "Taj Mahal",
-            href: "https://unsplash.com/photos/taj-mahal-india-IPlPkWPJ2fo",
-          },
-          {
-            src: "/photos/photo6.jpg",
-            alt: "Colosseum",
-            href: "https://unsplash.com/photos/brown-concrete-building-under-blue-sky-during-daytime-3cyBR1rIJmA?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash",
-          },
-        ]}
-      />
 
-      <ImageGrid
-        columns={2}
-        images={[
-          { src: "/photos/photo1.jpg", alt: "Roman columns" },
-          { src: "/photos/photo2.jpg", alt: "Big Ben" },
-          { src: "/photos/photo3.jpg", alt: "Sacré-Cœur Basilica" },
-          { src: "/photos/photo4.jpg", alt: "Eiffel Tower" },
-        ]}
-      />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {albums.map((album) => {
+          const cover = album.images[0]
+          if (!cover || !cover.width || !cover.height) {
+            return null
+          }
 
-      <ImageGrid
-        columns={4}
-        images={[
-          { src: "/photos/photo1.jpg", alt: "Roman columns" },
-          { src: "/photos/photo2.jpg", alt: "Big Ben" },
-          { src: "/photos/photo3.jpg", alt: "Sacré-Cœur Basilica" },
-          { src: "/photos/photo4.jpg", alt: "Eiffel Tower" },
-          { src: "/photos/photo5.jpg", alt: "Taj Mahal" },
-          { src: "/photos/photo6.jpg", alt: "Colosseum" },
-        ]}
-      />
+          return (
+            <Link
+              key={album.slug}
+              href={`/projects/${album.slug}`}
+              className="group block"
+            >
+              <div className="overflow-hidden bg-neutral-100 dark:bg-neutral-900">
+                <Image
+                  src={cover.url}
+                  alt={album.title}
+                  width={cover.width}
+                  height={cover.height}
+                  className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                />
+              </div>
+              <div className="pt-2">
+                <p className="font-medium tracking-tight">{album.title}</p>
+                <p className="text-sm text-neutral-500 dark:text-neutral-400">
+                  {album.images.length} photos
+                </p>
+              </div>
+            </Link>
+          )
+        })}
+      </div>
     </section>
-  );
+  )
 }

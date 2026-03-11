@@ -1,9 +1,21 @@
+const siteUrlFromEnv =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : '') ||
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '') ||
+  'http://localhost:3000'
+
+const baseUrl = siteUrlFromEnv.endsWith('/')
+  ? siteUrlFromEnv.slice(0, -1)
+  : siteUrlFromEnv
+
 export const metaData = {
-  baseUrl: 'https://nextfolio-template.vercel.app/',
+  baseUrl,
   title: 'Ke Zhang',
   name: 'Ke Zhang',
   ogImage: '/selfie.jpg',
-  description: 'Something about his story',
+  description: 'Photography portfolio and visual stories by Ke Zhang.',
 }
 
 interface SocialLinks {
@@ -15,16 +27,10 @@ interface SocialLinks {
 }
 
 export const socialLinks: SocialLinks = {
-  // twitter: 'https://x.com/1tssirius',
-  // github: 'https://github.com/1msirius/Nextfolio',
   instagram: 'https://www.instagram.com/_kkkkk_zhang/',
-  // linkedin: 'https://www.linkedin.com/',
   email: 'mailto:ke.zhang.rock@gmail.com',
 }
 
-// app/config/projects.ts
-// config/projects.ts
-// config/projects.ts
 export const projects = [
   {
     title: 'On My Way To Office 2026',
@@ -62,28 +68,28 @@ export const projects = [
     project_folder: 'edge_of_city',
     subtitle: '',
     imageOrder: [],
-    excludes: [], // Example exclusion
+    excludes: [],
   },
   {
     title: 'San Francisco Trail Story 2025',
     project_folder: 'sf_trail',
     subtitle: 'I want to get closer to, people',
     imageOrder: [],
-    excludes: [], // Example exclusion
+    excludes: [],
   },
   {
     title: 'Street Select 2025',
     project_folder: 'street_select_2025',
     subtitle: ' ',
     imageOrder: [],
-    excludes: [], // Example exclusion
+    excludes: [],
   },
   {
     title: 'Reflections on Reality 2024',
     project_folder: 'reflections_on_reality',
     subtitle: ' ',
     imageOrder: ['_1001206_sm_web_use.jpg', 'L1011137 1 1_sm_web_use.jpg'],
-    excludes: [], // Example exclusion
+    excludes: [],
   },
   {
     title: 'Divided By 2024',
@@ -146,5 +152,4 @@ export const projects = [
     imageOrder: ['000385_sm_web_use.jpg', 'leica568wuhan_sm_web_use.jpg'],
     excludes: [],
   },
-  // add more projects as needed
 ]
