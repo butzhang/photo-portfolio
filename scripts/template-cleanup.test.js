@@ -21,6 +21,16 @@ assertNoMatch(
   /Something about his story/i,
   'config still uses placeholder site description',
 )
+assertNoMatch(
+  config,
+  /project_folder:\s*'on_my_way_to_office_2026'/,
+  'Come Muted 2026 still uses legacy public slug on_my_way_to_office_2026',
+)
+if (!/project_folder:\s*'come_muted_2026'/.test(config)) {
+  throw new Error(
+    'Come Muted 2026 should use project_folder slug come_muted_2026',
+  )
+}
 
 const blogIndex = read('app/blog/page.tsx')
 assertNoMatch(
