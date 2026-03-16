@@ -52,6 +52,8 @@ export const projects = [
       'DSCF3535_scale_down_65.jpg',
       'DSCF3539_scale_down_65.jpg',
       'R0008230_scale_down_65.jpg',
+      'DSCF3374.jpg',
+      'DSCF3616.jpg',
     ],
     sections: [
       {
@@ -72,7 +74,11 @@ export const projects = [
       },
       {
         title: 'Come Unmuted',
-        imageOrder: ['R0008230_scale_down_65.jpg'],
+        imageOrder: [
+          'R0008230_scale_down_65.jpg',
+          'DSCF3374.jpg',
+          'DSCF3616.jpg',
+        ],
       },
     ],
     excludes: [],

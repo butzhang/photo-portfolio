@@ -27,6 +27,12 @@ if (!config.includes("'DSCF3539_scale_down_65.jpg'")) {
 if (!config.includes("'R0008230_scale_down_65.jpg'")) {
   throw new Error('R0008230_scale_down_65.jpg missing from config sections')
 }
+if (!config.includes("'DSCF3374.jpg'")) {
+  throw new Error('DSCF3374.jpg missing from config sections')
+}
+if (!config.includes("'DSCF3616.jpg'")) {
+  throw new Error('DSCF3616.jpg missing from config sections')
+}
 if (!page.includes('album.sections')) {
   throw new Error('project page does not render album sections')
 }
@@ -49,6 +55,12 @@ if (
   !album.images.some((item) => item.filename === 'R0008230_scale_down_65.jpg')
 ) {
   throw new Error('R0008230_scale_down_65.jpg missing from manifest album')
+}
+if (!album.images.some((item) => item.filename === 'DSCF3374.jpg')) {
+  throw new Error('DSCF3374.jpg missing from manifest album')
+}
+if (!album.images.some((item) => item.filename === 'DSCF3616.jpg')) {
+  throw new Error('DSCF3616.jpg missing from manifest album')
 }
 
 console.log('come muted sections test passed')
