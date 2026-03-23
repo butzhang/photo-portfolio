@@ -54,6 +54,11 @@ export const projects = [
       'R0008230_scale_down_65.jpg',
       'DSCF3374.jpg',
       'DSCF3616.jpg',
+      'DSC_2303.JPG',
+      'DSC_2530.JPG',
+      'DSC_2577.jpg',
+      'DSC_2582.jpg',
+      'DSC_2598 1.JPG',
     ],
     sections: [
       {
@@ -70,6 +75,7 @@ export const projects = [
           'R0008316_scale_down_65.jpg',
           'DSCF3535_scale_down_65.jpg',
           'DSCF3539_scale_down_65.jpg',
+          'DSC_2598 1.JPG',
         ],
       },
       {
@@ -78,6 +84,10 @@ export const projects = [
           'R0008230_scale_down_65.jpg',
           'DSCF3374.jpg',
           'DSCF3616.jpg',
+          'DSC_2303.JPG',
+          'DSC_2530.JPG',
+          'DSC_2577.jpg',
+          'DSC_2582.jpg',
         ],
       },
     ],
@@ -87,7 +97,7 @@ export const projects = [
     title: '2025-2026 Archive',
     project_folder: '2025-2026_archive',
     subtitle: '',
-    imageOrder: [],
+    imageOrder: ['DSCF3635.jpg'],
     excludes: [],
   },
   {
