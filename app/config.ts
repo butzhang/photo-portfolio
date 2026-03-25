@@ -59,6 +59,7 @@ export const projects = [
       'DSC_2577.jpg',
       'DSC_2582.jpg',
       'DSC_2598 1.JPG',
+      'R0008409 2.jpg',
     ],
     sections: [
       {
@@ -76,6 +77,7 @@ export const projects = [
           'DSCF3535_scale_down_65.jpg',
           'DSCF3539_scale_down_65.jpg',
           'DSC_2598 1.JPG',
+          'R0008409 2.jpg',
         ],
       },
       {

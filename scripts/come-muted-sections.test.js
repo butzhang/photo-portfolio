@@ -24,6 +24,9 @@ if (!config.includes("'DSCF3535_scale_down_65.jpg'")) {
 if (!config.includes("'DSCF3539_scale_down_65.jpg'")) {
   throw new Error('DSCF3539_scale_down_65.jpg missing from config sections')
 }
+if (!config.includes("'R0008409 2.jpg'")) {
+  throw new Error('R0008409 2.jpg missing from config sections')
+}
 if (!config.includes("'R0008230_scale_down_65.jpg'")) {
   throw new Error('R0008230_scale_down_65.jpg missing from config sections')
 }
@@ -62,6 +65,9 @@ const mutedSectionBlock =
 if (!mutedSectionBlock.includes("'DSC_2598 1.JPG'")) {
   throw new Error('DSC_2598 1.JPG should be in Come Muted section')
 }
+if (!mutedSectionBlock.includes("'R0008409 2.jpg'")) {
+  throw new Error('R0008409 2.jpg should be in Come Muted section')
+}
 
 const unmutedSectionBlock =
   config.match(
@@ -99,6 +105,9 @@ if (
   !album.images.some((item) => item.filename === 'DSCF3539_scale_down_65.jpg')
 ) {
   throw new Error('DSCF3539_scale_down_65.jpg missing from manifest album')
+}
+if (!album.images.some((item) => item.filename === 'R0008409 2.jpg')) {
+  throw new Error('R0008409 2.jpg missing from manifest album')
 }
 if (
   !album.images.some((item) => item.filename === 'R0008230_scale_down_65.jpg')
